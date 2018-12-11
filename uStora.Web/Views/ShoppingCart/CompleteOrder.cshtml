@@ -1,0 +1,47 @@
+﻿@model uStora.Web.Models.OrderResultViewModel
+@{
+    ViewBag.Title = "Kết quả giao dịch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-big-title-area" id="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End Page title area -->
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right" id="tblCartTable">
+                    <div class="woocommerce">
+                        @if (Model.Result)
+                        {
+                            <div class="alert alert-success">Thanh toán thành công. Chúng tôi sẽ liên hệ lại sớm nhất. Vui lòng <a href="/">click vào đây</a> để về trang chủ.</div>
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(Model.Message))
+                            {
+                                <div class="alert alert-danger">@Model.Message</div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-danger">Có lỗi xảy ra trong quá trình thanh toán. Vui lòng kiểm tra lại.</div>
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

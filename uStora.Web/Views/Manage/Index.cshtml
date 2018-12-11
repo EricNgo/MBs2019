@@ -1,0 +1,141 @@
+﻿@model uStora.Web.Models.IndexViewModel
+@{
+    ViewBag.Title = "Tài khoản của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (uStora.Web.Models.ApplicationUserViewModel)ViewBag.User;
+}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumb-area">
+    <div class="row">
+        <div class="col-xs-12 col-md-6 custom-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/"> <i class="fa fa-home"></i> Trang chủ</a></li>
+                <li><i class="fa fa-user"></i> Tài khoản của tôi</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area" style="padding-top: 10px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 custom-tab">
+                                    <!-- Nav tabs --><div class="card">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Thông tin tài khoản</a></li>
+                                            <li role="presentation"><a href="#qr" aria-controls="Mã QR" role="tab" data-toggle="tab">Mã QR</a></li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="home">
+                                                @if (!string.IsNullOrEmpty(ViewBag.StatusMessage))
+                                                {
+                                                <div class="alert alert-success alert-dismissable">
+                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    <strong>@ViewBag.StatusMessage</strong>
+                                                </div>
+                                                }
+                                                <div class="table-responsive">
+
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Họ tên</td>
+                                                                <td>@user.FullName</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tên đăng nhập</td>
+                                                                <td>@user.UserName</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Email</td>
+                                                                <td>@user.Email</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Giới tính</td>
+                                                                <td>@user.Gender</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ngày sinh</td>
+                                                                <td>
+                                                                    @{
+                                                                        var birthDate = "";
+                                                                        birthDate = user.BirthDay.ToShortDateString();
+                                                                    }
+
+
+
+                                                                    @birthDate
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ngày tham gia</td>
+                                                                <td>
+                                                                    @{
+                                                                        var joinedDate = "";
+                                                                    }
+                                                                    @if (user.CreatedDate.HasValue)
+                                                                    {
+                                                                        joinedDate = user.CreatedDate.Value.ToShortDateString();
+                                                                    }
+                                                                    @joinedDate
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Mật khẩu</td>
+                                                                <td>
+                                                                    [
+                                                                    @if (Model.HasPassword)
+                                                                    {
+                                                                    @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                    @Html.ActionLink("Thêm", "SetPassword")
+                                                                    }
+                                                                    ]
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="qr">
+                                                <div class="well">
+                                                    <p class="text-green"> Tạo mã QR để thanh toán nhanh chóng, tiện lợi, không cần điền thông tin của bạn trong lần thanh toán tiếp theo.</p>
+                                                </div>
+                                                <div style="float: left">
+                                                    <a href="@Url.Action("GenerateQrCode","Manage")" class="btn btn-primary"> Tạo mã QR</a>
+                                                </div>
+                                                @*<div style="float: left">
+                                                    <img src="~/Assets/Client/img/brand5.png" />
+                                                </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

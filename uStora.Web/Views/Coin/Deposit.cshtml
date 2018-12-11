@@ -1,0 +1,109 @@
+﻿@using BotDetect.Web.Mvc;
+@model uStora.Web.Models.CardsViewModel
+@{
+    ViewBag.Title = "Nạp xu bằng Thẻ cào";
+    MvcCaptcha cardCaptcha = new MvcCaptcha("cardCaptcha");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>@ViewBag.Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumb-area">
+    <div class="row">
+        <div class="col-xs-12 col-md-6 custom-breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/"> <i class="fa fa-home"></i> Trang chủ</a></li>
+                <li><i class="fa fa-money"></i> Nạp xu</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="single-product-area" style="padding-top: 10px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-content-right">
+                    <div class="woocommerce">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6 coin">
+                                        <h4>GIÁ TRỊ THẺ NẠP <em>(Xu nhận bằng 80% giá trị thẻ nạp)</em></h4>
+                                        <ul class="introduce-list">
+                                            <li>Thẻ <b>10.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+8 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>20.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+16 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>30.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+24 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>50.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+40 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>100.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+80 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>200.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+160 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>300.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+240 Xu vào tài khoản)</em></li>
+                                            <li>Thẻ <b>500.000 đ</b>&nbsp;&nbsp;&nbsp;&nbsp;<em>(+400 Xu vào tài khoản)</em></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        @using (Html.BeginForm())
+                                        {
+                                            if (Model.Result != null && !string.IsNullOrEmpty(Model.Result.Message))
+                                            {
+                                                var className = Model.Result.Result ? "alert-success" : "alert-danger";
+
+                                                <div class="alert @className">
+                                                    @Html.Raw(Model.Result.Message)
+                                                </div>
+                                            }
+
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-group">
+                                                @Html.DropDownListFor(x => x.CardType, new SelectList(Model.CardTypeList, "Value", "Text"), "--- Chọn nhà mạng cần nạp ---", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(x => x.CardType, "", new { @class = "text-danger " })
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon coin-addon" id="basic-addon1">Mã thẻ</span>
+                                                    @Html.TextBoxFor(x => x.PinCard, new { @class = "form-control", placeholder = "Mã thẻ dưới lớp giấy bạc" })
+                                                </div>
+                                                @Html.ValidationMessageFor(x => x.PinCard, "", new { @class = "text-danger " })
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon coin-addon" id="basic-addon2">Seri thẻ</span>
+                                                    @Html.TextBoxFor(x => x.SerialCard, new { @class = "form-control", placeholder = "Số seri thẻ" })
+                                                </div>
+                                                @Html.ValidationMessageFor(x => x.SerialCard, "", new { @class = "text-danger " })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.Captcha(cardCaptcha)
+                                                @Html.TextBox("CaptchaCodeCoin", null, new { @class = "form-control" })
+                                                @Html.ValidationMessage("CaptchaCodeCoin", new { @class = "text-danger " })
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Nạp thẻ</button>
+                                            </div>
+
+                                        }
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

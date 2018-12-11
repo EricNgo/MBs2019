@@ -1,0 +1,6 @@
+﻿@model IEnumerable<uStora.Model.Models.Manufactor>
+
+@foreach (var item in Model)
+{
+    <li><a href="/shop.htm?manuId=@item.Id">@item.Name</a></li>
+}

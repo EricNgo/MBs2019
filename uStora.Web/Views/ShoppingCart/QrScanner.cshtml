@@ -1,0 +1,60 @@
+﻿@model uStora.Web.Models.QrViewModel
+@{
+    ViewBag.Title = "Quét mã QR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-big-title-area" id="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Quét mã QR</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="app">
+                    <div class="sidebar">
+                        <section class="cameras">
+                            <h2>Danh sách Camera</h2>
+                            <ul>
+                                <li v-if="cameras.length === 0" class="empty">Không tìm thấy Camera</li>
+                                <li v-for="camera in cameras">
+                                    <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+                                    <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                                        <a click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </section>
+                        
+                    </div>
+                    <div class="preview-container">
+                        <video id="preview" height="500"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.HiddenFor(x => x.QrCode, new { id = "qrCode" })
+@Html.HiddenFor(x => x.IsEnoughCoin, new { id = "IsEnoughCoin" })
+
+@section scripts
+{
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+    <script src="~/Assets/Client/js/controllers/qrScanner.js"></script>
+
+}

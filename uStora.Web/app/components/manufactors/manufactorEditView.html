@@ -1,0 +1,53 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Cập nhật nhà cung cấp
+    </h1>
+    <ol class="breadcrumb">
+        <li><a ui-sref="home"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a ui-sref="manufactors">Nhà cung cấp</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thông tin nhà cung cấp</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmEditManu" role="form" ng-submit="Updatemanufactor()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tiêu đề</label>
+
+                    <div class="col-sm-10">
+                        <input class="form-control" required name="name" ng-model="manufactor.Name" placeholder="">
+                        <span ng-show="frmEditManu.name.$invalid" class="invalid">Phải nhập tên nhà cung cấp</span>
+                        <span ng-show="frmEditManu.name.$error.maxlength" class="invalid">Chỉ nhập tối đa 256 ký tự.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Hình ảnh</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" name="image" ng-model="manufactor.LogoUrl" placeholder="hình ảnh">
+                        <button type="button" class="btn btn-default" ng-click="chooseImage()">Chọn ảnh</button>
+                        <span ng-show="frmEditManu.image.$error.maxlength" class="invalid">Chỉ nhập 256 ký tự.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button ui-sref="manufactors" class="btn btn-default">Hủy</button>
+                <button type="submit" ng-disabled="frmEditManu.$invalid" class="btn btn-info">Lưu lại</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+    <!-- /.box -->
+</section><!-- /.content -->
