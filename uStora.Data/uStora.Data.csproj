@@ -116,6 +116,34 @@
     <Compile Include="Migrations\201807161237178_AddManufactorTable.Designer.cs">
       <DependentUpon>201807161237178_AddManufactorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812140629075_f3_addtagcategory.cs" />
+    <Compile Include="Migrations\201812140629075_f3_addtagcategory.Designer.cs">
+      <DependentUpon>201812140629075_f3_addtagcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812140636072_f5.cs" />
+    <Compile Include="Migrations\201812140636072_f5.Designer.cs">
+      <DependentUpon>201812140636072_f5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812140637074_f6.cs" />
+    <Compile Include="Migrations\201812140637074_f6.Designer.cs">
+      <DependentUpon>201812140637074_f6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150529510_f3.cs" />
+    <Compile Include="Migrations\201812150529510_f3.Designer.cs">
+      <DependentUpon>201812150529510_f3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150535100_update_add_tagcategory.cs" />
+    <Compile Include="Migrations\201812150535100_update_add_tagcategory.Designer.cs">
+      <DependentUpon>201812150535100_update_add_tagcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150538241_updatetest.cs" />
+    <Compile Include="Migrations\201812150538241_updatetest.Designer.cs">
+      <DependentUpon>201812150538241_updatetest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812150544250_updatetest4.cs" />
+    <Compile Include="Migrations\201812150544250_updatetest4.Designer.cs">
+      <DependentUpon>201812150544250_updatetest4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
     <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
@@ -142,6 +170,7 @@
     <Compile Include="Repositories\SlideRepository.cs" />
     <Compile Include="Repositories\SupportOnlineRepository.cs" />
     <Compile Include="Repositories\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\TagCategoryRepository.cs" />
     <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Repositories\TrackOrderRepository.cs" />
     <Compile Include="Repositories\TransactionHistoryRepository.cs" />
@@ -204,6 +233,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807161237178_AddManufactorTable.resx">
       <DependentUpon>201807161237178_AddManufactorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140629075_f3_addtagcategory.resx">
+      <DependentUpon>201812140629075_f3_addtagcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140636072_f5.resx">
+      <DependentUpon>201812140636072_f5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812140637074_f6.resx">
+      <DependentUpon>201812140637074_f6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150529510_f3.resx">
+      <DependentUpon>201812150529510_f3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150535100_update_add_tagcategory.resx">
+      <DependentUpon>201812150535100_update_add_tagcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150538241_updatetest.resx">
+      <DependentUpon>201812150538241_updatetest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812150544250_updatetest4.resx">
+      <DependentUpon>201812150544250_updatetest4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

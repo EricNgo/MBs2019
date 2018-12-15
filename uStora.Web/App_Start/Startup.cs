@@ -4,6 +4,7 @@ using Autofac.Integration.WebApi;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System.Globalization;
 using System.Reflection;
@@ -27,6 +28,7 @@ namespace uStora.Web.App_Start
         public void Configuration(IAppBuilder app)
         {
             app.MapSignalR();
+    
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             ConfigAutofac(app);
             ConfigureAuth(app);

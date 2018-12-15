@@ -21,12 +21,12 @@
 
         protected override void Seed(uStoraDbContext context)
         {
-            CreateUser(context);
-            BrandDefault(context);
-            CreateContactDetail(context);
-            CreateSystemConfig(context);
+            //CreateUser(context);
+            //BrandDefault(context);
+            //CreateContactDetail(context);
+            //CreateSystemConfig(context);
             CreatePage(context);
-            CreateGroup(context);
+            //CreateGroup(context);
         }
         #region Methods
         private void CreateUser(uStoraDbContext context)
@@ -96,13 +96,13 @@
                 {
                     var contactDetail = new ContactDetail()
                     {
-                        Name = "Shop online - uStora",
-                        Address = "472 Núi Thành",
-                        Phone = "016 5213 0546",
-                        Email = "dvbtham@gmail.com",
+                        Name = "Shop online - TTGShop",
+                        Address = "439B CMT8 Q10 TPHCM",
+                        Phone = "093 9289 872",
+                        Email = "ttgshop1996m@gmail.com",
                         Lat = 16.034562,
                         Lng = 108.222603,
-                        Website = "http://ustora.somee.com",
+                        Website = "http://ttgshop.somee.com",
                         Description = "",
                         Status = true
                     };
@@ -123,7 +123,7 @@
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeTitle",
-                    ValueString = "Trang chủ uStora shop - nơi mua bán uy tín và chất lượng - uStora.com"
+                    ValueString = "Trang chủ TTGShop - Uy tín và chất lượng - cửa hàng xe đạp - ttgshop.somee.com"
                 });
             }
             if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaKeyword"))
@@ -131,7 +131,7 @@
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeMetaKeyword",
-                    ValueString = "Trang chủ uStora shop - nơi mua bán uy tín và chất lượng - uStora.com"
+                    ValueString = "Trang chủ TTGShop - Uy tín và chất lượng - cửa hàng xe đạp - ttgshop.somee.com"
                 });
             }
             if (!context.SystemConfigs.Any(x => x.Code == "HomeMetaDescription"))
@@ -139,7 +139,7 @@
                 context.SystemConfigs.Add(new SystemConfig()
                 {
                     Code = "HomeMetaDescription",
-                    ValueString = "Trang chủ uStora shop - nơi mua bán uy tín và chất lượng - uStora.com"
+                    ValueString = "Trang chủ TTGShop - Uy tín và chất lượng - cửa hàng xe đạp - ttgshop.somee.com"
                 });
             }
         }
@@ -155,9 +155,9 @@
                         Name = "Giới thiệu",
                         Alias = "gioi-thieu",
                         CreatedDate = DateTime.Now,
-                        MetaDescription = "Trang giới thiệu của uStora",
-                        MetaKeyword = "Trang giới thiệu của uStora",
-                        Content = @"Là trang web bán hàng online, chuyên cung cấp món hàng trong lĩnh vực thiết bị số: Điện thoại, máy tính cá nhân, máy ảnh,... và một số dịch vụ kèm theo khi mua hàng.",
+                        MetaDescription = "Trang giới thiệu của TTGShop",
+                        MetaKeyword = "Trang giới thiệu của TTGShop",
+                        Content = @"Là trang web bán hàng online, chuyên cung cấp món hàng trong kinh doanh xe đạp , cung cấp các loại xe đạp giá rẻ đến hàng cao cấp nhập khẩu",
                         Status = true
 
                     };

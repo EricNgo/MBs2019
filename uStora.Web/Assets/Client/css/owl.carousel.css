@@ -156,6 +156,7 @@
 }
 .owl-carousel .owl-item img {
   transform-style: preserve-3d;
+  height:190px;
 }
 
 /* 

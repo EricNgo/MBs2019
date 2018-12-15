@@ -34,7 +34,7 @@ namespace uStora.Web.API
 
         [Route("getall")]
         [HttpGet]
-        [Authorize(Roles = "ViewUser")]
+        [Authorize]
         public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
         {
             return CreateHttpResponse(request, () =>

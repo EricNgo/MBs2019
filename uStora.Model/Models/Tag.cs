@@ -16,8 +16,15 @@ namespace uStora.Model.Models
         [MaxLength(250)]
         public string Name { get; set; }
 
+
+        [Required]
+        public int TagCategoryID { get; set; }
+
         [MaxLength(250)]
         public string Type { get; set; }
+
+        [ForeignKey("TagCategoryID")]
+        public TagCategory TagCategory { get; set; }
 
         public virtual IEnumerable<PostTag> PostTags { get; set; }
     }

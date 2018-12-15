@@ -10,6 +10,17 @@
         $scope.BirthDay = "";
         $scope.updateAccount = updateAccount;
 
+        $scope.chooseImage = function () {
+            var finder = new CKFinder();
+
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.account.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
+
         function updateAccount() {
             apiService.put('/api/applicationUser/update', $scope.account, editSuccessed, editFailed);
         }

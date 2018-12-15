@@ -4,6 +4,8 @@
             'uStora.product_categories',
             'uStora.slides',
             'uStora.brands',
+            'uStora.tags',
+            'uStora.tag_categories',
             'uStora.application_groups',
             'uStora.application_roles',
             'uStora.application_users',

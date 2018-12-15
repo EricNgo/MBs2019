@@ -17,6 +17,7 @@ namespace uStora.Web.Mappings
                 x.CreateMap<PostCategory, PostCategoryViewModel>();
                 x.CreateMap<PostTag, PostTagViewModel>();
                 x.CreateMap<Tag, TagViewModel>();
+                x.CreateMap<TagCategory, TagCategoryViewModel>();
                 x.CreateMap<Product, ProductViewModel>();
                 x.CreateMap<Product, ExportedProduct>();
                 x.CreateMap<ProductTag, ProductTagViewModel>();

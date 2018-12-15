@@ -65,7 +65,7 @@
                             <td>{{item.Vehicle.DriverName}}</td>
                             <!--class="badge bg-red"-->
                             <td>
-                                <span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status==true}">
+                                <span ng-class="{'badge bg-green':item.Status==false,'badge bg-red':item.Status==true}">
                                     {{item.Status|statusTrackOrderFilter}}
                                 </span>
                             </td>

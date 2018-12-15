@@ -199,6 +199,14 @@ namespace uStora.Web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "uStora.Web.Controllers" }
             );
+
+            // chỉnh product theo ý muốn khách hàng
+            routes.MapRoute(
+                name: "Product Customize",
+                url: "san-pham-theo-y-thich.htm",
+                defaults: new { controller = "Product", action = "Customize", id = UrlParameter.Optional },
+                namespaces: new string[] { "uStora.Web.Controllers" }
+            );
         }
     }
 }

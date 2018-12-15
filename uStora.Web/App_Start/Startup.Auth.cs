@@ -62,13 +62,13 @@ namespace uStora.Web.App_Start
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "1809421965964024",
-               appSecret: "94ae2e92221fe84d81541e1c496cf950");
+               appId: "1919916108076678",
+               appSecret: "ef7383d37ec2c34094123a5885642c05");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "1038526644204-qo8p1muc872d18vvmtkvlm7gkhhor7n5.apps.googleusercontent.com",
-                ClientSecret = "Mrls7jPRbSksd2pydYRCnzyB"
+                ClientId = "511230680731-75f7jdqd7jnl8tftlla77dftj256oiit.apps.googleusercontent.com",
+                ClientSecret = "x60L1ztKP5wHCkMXB9JMAtiO"
             });
         }
         public class AuthorizationServerProvider : OAuthAuthorizationServerProvider

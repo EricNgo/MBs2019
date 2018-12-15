@@ -208,6 +208,12 @@ namespace uStora.Web.Controllers
 
             return View(paginationSet);
         }
+
+
+        public ActionResult Customize()
+        {
+            return View();
+        }
         #endregion
     }
 }

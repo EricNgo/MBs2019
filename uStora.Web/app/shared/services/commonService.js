@@ -6,7 +6,8 @@
             getSeoTitle: getSeoTitle,
             objectToString: objectToString,
             strToDate: strToDate,
-            getTree: getTree
+            getTree: getTree,
+
         };
 
         function getSeoTitle(input) {
@@ -120,5 +121,6 @@
 
             return tree;
         }
+      
     }
 })(angular.module('uStora.common'));

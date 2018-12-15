@@ -12,6 +12,17 @@
 
         $scope.addAccount = addAccount;
 
+        $scope.chooseImage = function () {
+            var finder = new CKFinder();
+
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.account.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        };
+
         function addAccount() {
             apiService.post('/api/applicationUser/add', $scope.account, addSuccessed, addFailed);
         }

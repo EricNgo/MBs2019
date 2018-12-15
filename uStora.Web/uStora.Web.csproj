@@ -94,8 +94,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -110,33 +109,27 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="MvcPaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MVC4.Paging.3.1.1\lib\net40\MvcPaging.dll</HintPath>
@@ -251,6 +244,8 @@
     <Compile Include="Api\ManufactorController.cs" />
     <Compile Include="Api\OderController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
+    <Compile Include="Api\TagController.cs" />
+    <Compile Include="Api\TagCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
     <Compile Include="Api\SlideController.cs" />
@@ -324,6 +319,7 @@
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\StockViewModel.cs" />
     <Compile Include="Models\StockVm.cs" />
+    <Compile Include="Models\TagCategoryViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Models\TrackOrderViewModel.cs" />
     <Compile Include="Models\VehicleViewModel.cs" />
@@ -375,6 +371,15 @@
     <Content Include="app\components\login\loginView.html" />
     <Content Include="app\components\notifications\notification.module.js" />
     <Content Include="app\components\notifications\notificationListController.js" />
+    <Content Include="app\components\tags\tag.module.js" />
+    <Content Include="app\components\tags\tagAddController.js" />
+    <Content Include="app\components\tags\tagAddView.html" />
+    <Content Include="app\components\tags\orderDetailController.js" />
+    <Content Include="app\components\tags\orderDetailView.html" />
+    <Content Include="app\components\tags\orderEditController.js" />
+    <Content Include="app\components\tags\orderEditView.html" />
+    <Content Include="app\components\tags\tagListController.js" />
+    <Content Include="app\components\tags\tagListView.html" />
     <Content Include="app\components\orders\order.module.js" />
     <Content Include="app\components\orders\orderAddController.js" />
     <Content Include="app\components\orders\orderAddView.html" />
@@ -391,6 +396,13 @@
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
     <Content Include="app\components\products\products.module.js" />
+    <Content Include="app\components\tag_categories\tagCategory.module.js" />
+    <Content Include="app\components\tag_categories\tagCategoryAddController.js" />
+    <Content Include="app\components\tag_categories\tagCategoryAddView.html" />
+    <Content Include="app\components\tag_categories\tagCategoryEditController.js" />
+    <Content Include="app\components\tag_categories\tagCategoryEditView.html" />
+    <Content Include="app\components\tag_categories\tagCategoryListController.js" />
+    <Content Include="app\components\tag_categories\tagCategoryListView.html" />
     <Content Include="app\components\product_categories\productCategory.module.js" />
     <Content Include="app\components\product_categories\productCategoryAddController.js" />
     <Content Include="app\components\product_categories\productCategoryAddView.html" />
@@ -535,7 +547,9 @@
     <Content Include="Assets\Client\img\h4-slide3.png" />
     <Content Include="Assets\Client\img\h4-slide4.png" />
     <Content Include="Assets\Client\img\h4-slide7.png" />
+    <Content Include="Assets\Client\img\logo.png" />
     <Content Include="Assets\Client\img\unnamed.jpg" />
+    <Content Include="Assets\Client\img\voice.gif" />
     <Content Include="Assets\Client\js\ajaxPaging.js" />
     <Content Include="Assets\Client\js\checkbox.js" />
     <Content Include="Assets\Client\js\common.js" />
@@ -5264,8 +5278,6 @@
     <Content Include="Assets\libs\toastr\toastr.js" />
     <Content Include="Assets\libs\toastr\toastr.min.css" />
     <Content Include="Assets\libs\toastr\toastr.min.js" />
-    <Content Include="favicon.ico" />
-    <Content Include="Assets\Client\img\logo.png" />
     <Content Include="Assets\Client\img\product-1.jpg" />
     <Content Include="Assets\Client\img\product-2.jpg" />
     <Content Include="Assets\Client\img\product-3.jpg" />
@@ -5293,6 +5305,7 @@
     <Content Include="Assets\Client\js\search-box.js" />
     <Content Include="Assets\Client\templates\contactTemplate.html" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Libs\CKFinder.dll" />
@@ -5655,6 +5668,90 @@
     <Content Include="Assets\libs\php-date-formatter\README.md" />
     <None Include="Properties\PublishProfiles\uStora.pubxml" />
     <None Include="Scripts\_references.js" />
+    <Content Include="UploadedFiles\files\back1.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_1.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_2.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_3.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_4.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_5.jpg" />
+    <Content Include="UploadedFiles\files\bike1\bike1_6.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bik2_2.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bik2_3.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bik2_4.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bik2_5.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bik2_6.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bike2_1.jpg" />
+    <Content Include="UploadedFiles\files\bike2\bike2_7.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt5 %281%29.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt5.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt6.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Alt7.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Marlin5WSD_19_23133_A_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\bike3\Trek_Marlin_5_WSD_19_WHT.jpg" />
+    <Content Include="UploadedFiles\files\bike4\1008601_2018_A_2_820_Womens-Copy-Copy.jpg" />
+    <Content Include="UploadedFiles\files\bike4\820WSD_17230_A_Accessory1.jpg" />
+    <Content Include="UploadedFiles\files\bike4\820WSD_17230_A_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\bike4\820WSD_17230_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike4\820WSD_17230_A_Alt4.jpg" />
+    <Content Include="UploadedFiles\files\bike4\820WSD_17230_A_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\bike4\Trek_820_Women_BLUBLK.jpg" />
+    <Content Include="UploadedFiles\files\bike5\1008600_2018_A_2_820-Copy-Copy.jpg" />
+    <Content Include="UploadedFiles\files\bike5\820_17027_A_Accessory1.jpg" />
+    <Content Include="UploadedFiles\files\bike5\820_17027_A_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\bike5\820_17027_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike5\820_17027_A_Alt4.jpg" />
+    <Content Include="UploadedFiles\files\bike5\820_17027_A_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\bike5\Trek_820_Men_CHRBLU.jpg" />
+    <Content Include="UploadedFiles\files\bike6\1010600_2018_AA_2_Marlin_4-Copy-Copy.jpg" />
+    <Content Include="UploadedFiles\files\bike6\Marlin4_21469_A_Accessory1.jpg" />
+    <Content Include="UploadedFiles\files\bike6\Marlin4_21469_A_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\bike6\Marlin4_21469_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike6\Trek_Marlin_4_SILBLU.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt4.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt5.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt6.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Alt7.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Marlin7_19_23120_B_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\bike7\Trek_Marlin_7_19_ORG.jpg" />
+    <Content Include="UploadedFiles\files\bike8\2016600_2018_AA_2_Marlin_6-Copy-Copy.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Marlin6_17177_A_Accessory1.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Marlin6_17177_A_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Marlin6_17177_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Marlin6_17177_A_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Marlin6_17177_A_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\bike8\Trek_Marlin_6_BLKWHT.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt1.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt4.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt5.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Alt8.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Portrait.jpg" />
+    <Content Include="UploadedFiles\files\fit1\FX2_19_17455_E_Primary.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt5.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt6.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt7.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt8.jpg" />
+    <Content Include="UploadedFiles\files\fit2\FX1_Stagger_17444_A_Alt9.jpg" />
+    <Content Include="UploadedFiles\files\fit2\Trek_FX_Stagger_BLK.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Accessory2.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Alt2.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Alt3.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Alt4.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Alt5.jpg" />
+    <Content Include="UploadedFiles\files\fit3\DS2WSD_19_23075_B_Alt8.jpg" />
+    <Content Include="UploadedFiles\files\fit3\Trek_DS2_WSD_GRN.jpg" />
+    <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_820.jpg" />
+    <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_Xcaliber%281%29.jpg" />
+    <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_Xcaliber.jpg" />
     <Content Include="UploadedFiles\images\brands\Asus_logo.png" />
     <Content Include="UploadedFiles\images\brands\brand1.png" />
     <Content Include="UploadedFiles\images\brands\brand2.png" />
@@ -5739,6 +5836,8 @@
     <Content Include="Views\Coin\Deposit.cshtml" />
     <Content Include="Views\Shared\_CoinPartial.cshtml" />
     <Content Include="Views\Product\_ManufactorList.cshtml" />
+    <Content Include="UploadedFiles\files\bike1\Thumbs.db" />
+    <Content Include="Views\Product\Customize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\shared\footer\" />
@@ -5747,6 +5846,7 @@
     <Folder Include="Assets\libs\checklist-model\test\" />
     <Folder Include="Assets\libs\datetimepicker\tests\" />
     <Folder Include="Assets\libs\mustache\bin\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="Reports\" />
     <Folder Include="Views\AjaxProduct\" />
     <Folder Include="Views\Brand\" />
@@ -5778,7 +5878,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppSettings.config" />
+    <Content Include="AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionString.config" />

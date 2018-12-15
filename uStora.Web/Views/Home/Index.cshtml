@@ -78,7 +78,7 @@
                                 <div class="product-f-image">
                                     <img src="@product.Image" class="disabled" alt="@product.Name">
                                     <div class="product-hover">
-                                        <a href="#" class="action-box">
+                                        <a href="#" class="action-box" >
                                             <i class="fa fa-shopping-cart add-to-cart" id="btnAddToCart" data-id="@product.ID" data-toggle="tooltip" title="Thêm vào giỏ"></i>
                                             @if (Request.IsAuthenticated)
                                             {
@@ -90,7 +90,11 @@
                                             }
                                         </a>
 
-                                        <a href="/product/@(product.Alias)-@(product.ID).htm" data-toggle="tooltip" data-html="true" title="@product.Description" class="view-details-link"><i class="fa fa-link"></i> Xem chi tiết</a>
+                                        <a href="/product/@(product.Alias)-@(product.ID).htm" data-toggle="tooltip" data-html="true" title="@product.Description" class="view-details-link" >
+                                        <i class="fa fa-link">
+                                            </i>
+                                        Xem chi tiết
+                                        </a>
                                     </div>
                                 </div>
                                 <h2><a href="/product/@(product.Alias)-@(product.ID).htm">@product.Name</a></h2>

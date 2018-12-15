@@ -100,6 +100,7 @@
     <Compile Include="Models\PostCategory.cs" />
     <Compile Include="Models\PostTag.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\TagCategory.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\ProductTag.cs" />
     <Compile Include="Models\Slide.cs" />

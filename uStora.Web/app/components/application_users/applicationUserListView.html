@@ -30,6 +30,7 @@
                                    <th>Tên người dùng</th>
                                    <th>Tài khoản</th>
                                    <th>Email</th>
+                                   <th>Hình đại diện</th>
                                    <th style="width:10%">Thao tác</th>
                                </tr>
                            </thead>
@@ -38,6 +39,9 @@
                                    <td><a ui-sref="edit_application_user({id:item.Id})">{{item.FullName}}</a></td>
                                    <td><a ui-sref="edit_application_user({id:item.Id})">{{item.UserName}}</a></td>
                                    <td>{{item.Email}}</td>
+                                   <td>
+                                       <img width="50" src="{{item.Image}}" alt="hình đại diện" />
+                                   </td>
                                    <td>
                                        <a ui-sref="edit_application_user({id:item.Id})" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
                                        <button class="btn btn-sm btn-danger" ng-click="deleteItem(item.Id)"><i class="fa fa-trash-o"></i></button>

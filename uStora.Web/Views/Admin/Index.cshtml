@@ -32,9 +32,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini" ng-app="uStora" ng-controller="rootController">
-
     <div ui-view></div>
-
     <!-- jQuery -->
     <script src="~/Assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- SignalR -->
@@ -69,7 +67,6 @@
     <script src="~/Assets/libs/angular-chart.js/dist/angular-chart.min.js"></script>
     <script src="~/Assets/libs/angular-timeago/dist/angular-timeago.js"></script>
     <script src="~/Assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
-
     <script src="/app/shared/modules/uStora.common.js"></script>
     <script src="/app/shared/filters/status.filter.js"></script>
     <script src="~/app/shared/filters/statusTrackOrderFilter.js"></script>
@@ -84,7 +81,9 @@
     <script src="/app/components/products/products.module.js"></script>
     <script src="~/app/components/slides/slide.module.js"></script>
     <script src="~/app/components/brands/brand.module.js"></script>
+    <script src="~/app/components/tags/tag.module.js"></script>
     <script src="/app/components/product_categories/productCategory.module.js"></script>
+    <script src="~/app/components/tag_categories/tagCategory.module.js"></script>
     <script src="~/app/components/application_groups/applicationGroup.module.js"></script>
     <script src="~/app/components/application_roles/applicationRoles.module.js"></script>
     <script src="~/app/components/application_users/applicationUsers.module.js"></script>
@@ -97,7 +96,9 @@
     <script src="~/app/components/manufactors/manufactor.module.js"></script>
     <script src="/app/app.js"></script>
     <script src="~/app/components/home/rootController.js"></script>
-
+    <script src="~/app/components/tag_categories/tagCategoryListController.js"></script>
+    <script src="~/app/components/tag_categories/tagCategoryEditController.js"></script>
+    <script src="~/app/components/tag_categories/tagCategoryAddController.js"></script>
     <script src="/app/components/product_categories/productCategoryListController.js"></script>
     <script src="/app/components/product_categories/productCategoryAddController.js"></script>
     <script src="/app/components/products/productAddController.js"></script>
@@ -115,6 +116,8 @@
     <script src="/app/components/slides/slideEditController.js"></script>
     <script src="~/app/components/brands/brandEditController.js"></script>
     <script src="/app/components/products/productListController.js"></script>
+    <script src="~/app/components/tags/tagListController.js"></script>
+    <script src="~/app/components/tags/tagAddController.js"></script>
     <script src="~/app/components/application_groups/applicationGroupEditController.js"></script>
     <script src="~/app/components/application_roles/applicationRoleEditController.js"></script>
     <script src="~/app/components/application_users/applicationUserEditController.js"></script>

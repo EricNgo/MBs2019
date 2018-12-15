@@ -74,6 +74,26 @@ namespace uStora.Web.Infrastructure.Extensions
             productCategory.Status = productCategoryViewModel.Status;
         }
 
+        public static void UpdateTag(this Tag tag, TagViewModel tagViewModel)
+        {
+            tag.ID = tagViewModel.ID;
+            tag.Name = tagViewModel.Name;
+            tag.Type = tagViewModel.Type;
+            tag.TagCategoryID = tagViewModel.TagCategoryID;
+
+
+        }
+
+
+        public static void UpdateTagCategory(this TagCategory tagCategory, TagCategoryViewModel tagCategoryViewModel)
+        {
+            tagCategory.ID = tagCategoryViewModel.ID;
+            tagCategory.Name = tagCategoryViewModel.Name;
+
+        }
+
+
+
         public static void UpdateProduct(this Product product, ProductViewModel productViewModel)
         {
             product.ID = productViewModel.ID;

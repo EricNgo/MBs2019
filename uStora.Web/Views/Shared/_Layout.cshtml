@@ -4,23 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | uStora </title>
+    <title>@ViewBag.Title | TTGShop </title>
     <meta name="keywords" content="@ViewBag.MetaKeyword">
     <meta name="description" content="@ViewBag.MetaDescription">
-    
+
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-       @Styles.Render("~/css/core")
-
+    @Styles.Render("~/css/core")
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .speech {
+            border: 1px solid #DDD;
+            width: 300px;
+            padding: 0;
+            margin: 0
+        }
+
+            .speech img {
+                float: right;
+                width: 40px; 
+                margin-top: 212px;
+                margin-right: -420px;
+            }
+    </style>
 </head>
 <body>
 
@@ -87,6 +100,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @using uStora.Common
+
                         <li class="@Html.IsSelected("Home","Index")"><a href="/">Trang chủ</a></li>
                         <li class="@Html.IsSelected("Product","Shop")"><a href="/shop.htm">Cửa hàng</a></li>
                         <li class="dropdown">
@@ -100,10 +114,9 @@
                         <li class="@Html.IsSelected("Home","About")"><a href="/trang-gioi-thieu.htm">Giới thiệu</a></li>
                         <li class="@Html.IsSelected("Home", "Contact")"><a href="/contact.htm">Liên hệ</a></li>
                     </ul>
-
                     @if (!Request.IsAuthenticated)
                     {
-                            <!-- Login - Signup -->
+                        <!-- Login - Signup -->
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/register.htm"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
                             <li><a href="/login.htm"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
@@ -118,24 +131,58 @@
                             <!-- Login - Signup -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="/tai-khoan.htm">Xin chào: @StringHelper.GetNameByEmail(User.Identity.Name)</a></li>
-
                                 <li><a href="#" id="btnLogOut">Thoát</a></li>
                                 <li><a href="#search"> Tìm kiếm</a></li>
-
                             </ul>
                         }
                     }
 
-
                 </div>
                 <div id="search">
                     <button type="button" class="close">×</button>
-
-                    <form method="get" action="/search.htm">
+                    @*<form method="get" action="/search.htm">
                         <input type="search" name="keyword" placeholder="nhập từ khóa ở đây" />
                         <button type="submit" class="btn btn-primary" id="btnSearch">Search</button>
+                        <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+
+                    </form>*@
+                     <div class="speech">
+                    <form id="labnol" method="get" action="/search.htm">
+                       
+                            <input type="search" name="keyword" id="transcript" placeholder="Nhập Từ Khóa hoặc Nhấp Voice để tìm..." />
+                            <button type="submit" class="btn btn-primary" id="btnSearch">Search</button>
+                            <img onclick="startDictation()" src="~/Assets/Client/img/voice.gif" />
+                   
                     </form>
+                         </div>
                 </div>
+                <script>
+                    function startDictation() {
+
+                        if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+                            var recognition = new webkitSpeechRecognition();
+
+                            recognition.continuous = false;
+                            recognition.interimResults = false;
+
+                            recognition.lang = "en-US";
+                            recognition.start();
+
+                            recognition.onresult = function (e) {
+                                document.getElementById('transcript').value
+                                    = e.results[0][0].transcript;
+                                recognition.stop();
+                                document.getElementById('labnol').submit();
+                            };
+
+                            recognition.onerror = function (e) {
+                                recognition.stop();
+                            }
+
+                        }
+                    }
+                </script>
             </div>
         </div>
     </div> <!-- End mainmenu area -->
@@ -154,8 +201,8 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-about-us">
-                        <h2>u<span>Stora</span></h2>
-                        <p>Là trang web bán hàng online, chuyên cung cấp món hàng trong lĩnh vực thiết bị số: Điện thoại, máy tính cá nhân, máy ảnh,... và một số dịch vụ kèm theo khi mua hàng.</p>
+                        <h2>TTG<span>Shop</span></h2>
+                        <p>Là trang web bán hàng online, chuyên cung cấp món hàng trong kinh doanh xe đạp , cung cấp các loại xe đạp giá rẻ đến hàng cao cấp nhập khẩu</p>
                         <div class="footer-social">
                             <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                             <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -210,7 +257,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2016 uStora. All Rights Reserved.</p>
+                        <p>&copy; 2018 TTGShop. All Rights Reserved.</p>
                     </div>
                 </div>
 
