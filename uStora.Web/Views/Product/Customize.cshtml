@@ -81,12 +81,33 @@
 
         <div class="item col-md-3" data-item-id="1" data-item-tags="@product.Tags">
 
-            <div class="wrapper">
-
-                <img src="@product.Image" alt="@product.Name">
-
-                <h2>@product.Name</h2>
-                <p class="item-tags"></p>
+            <div class="single-shop-product">
+                @*<div class="product-upper">*@
+                    <img src="@product.Image" data-html="true" data-toggle="tooltip" title="@product.Description" alt="@product.Name">
+                @*</div>*@
+                <h2><a href="/product/@(product.Alias)-@(product.ID).htm">@product.Name</a></h2>
+                <div class="product-carousel-price">
+                    @if (product.PromotionPrice.HasValue && product.PromotionPrice.Value != 0)
+                    {
+                        <ins>@product.PromotionPrice.Value.ToString("c0")</ins>
+                        <del>@product.Price.ToString("c0")</del>
+                    }
+                    else
+                    {
+                        <ins>@product.Price.ToString("c0")</ins>
+                    }
+                </div>
+                <div class="product-option-shop">
+                    <a href="#" id="btnAddToCart" data-id="@product.ID" class="add_to_cart_button">Thêm vào giỏ</a>
+                    @*@if (Request.IsAuthenticated)
+                    {
+                        <a href="javascript:void()" id="add_to_wishlist_button" class="add_to_wishlist_button" data-toggle="tooltip" title="Yêu thích"><i class="fa fa-heart" data-id="@product.ID" id="btnAddWishlist"></i></a>
+                    }
+                    else
+                    {
+                        <a href="javascript:void()" id="add_to_wishlist_button" class="add_to_wishlist_button" data-toggle="tooltip" title="Yêu thích"><i class="fa fa-heart" data-id="@product.ID" id="btnAddWishlistDisable"></i></a>
+                    }*@
+                </div>
             </div>
 
         </div>

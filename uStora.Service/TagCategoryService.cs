@@ -9,7 +9,7 @@ namespace uStora.Service
 {
     public interface ITagCategoryService : ICrudService<TagCategory>, IGetDataService<TagCategory>
     {
-
+        void IsDeleted(int id);
     }
 
     public class TagCategoryService : ITagCategoryService
@@ -70,11 +70,11 @@ namespace uStora.Service
                 return _tagCategoryRepository.GetAll();
         }
 
-        //public void IsDeleted(int id)
-        //{
-        //    var category = FindById(id);
-        //    category.IsDeleted = true;
-        //    SaveChanges();
-        //}
+        public void IsDeleted(int id)
+        {
+            var category = FindById(id);
+            //category.IsDeleted = true;
+            SaveChanges();
+        }
     }
 }

@@ -1,0 +1,66 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Cập nhật Tag
+    </h1>
+    <ol class="breadcrumb">
+        <li><a ui-sref="home"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a ui-sref="tags">Tags</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thông tin Tags</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmUpdateTag" role="form" ng-submit="UpdateTag()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tên Tag</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" required name="name" ng-change="GetSeoTitle()" ng-model="tag.Name" placeholder="tên tag">
+                        <div ng-show="frmUpdateTag.name.$touched">
+                            <span ng-show="frmUpdateTag.name.$invalid" class="invalid">Phải nhập tên tag.</span>
+                            <span ng-show="frmUpdateTag.name.$error.maxlength" class="invalid">Chỉ nhập tối đa 256 ký tự.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">ID Tag</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-maxlength="256" required name="alias" ng-model="tag.ID" placeholder="id tag">
+                    <div ng-show="frmUpdateTag.id.$touched">
+                        <span ng-show="frmUpdateTag.id.$invalid" class="invalid">Phải nhập id tag.</span>
+                        <span ng-show="frmUpdateTag.id.$error.maxlength" class="invalid">Chỉ nhập tối đa 256 ký tự.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Danh mục Tags</label>
+                <div class="col-sm-10">
+                    <select name="parentId" required class="form-control" ng-model="tag.TagCategoryID" ng-options="option.ID as option.Name for option in tagCategories">
+                        <option value="">Chọn danh mục</option>
+                    </select>
+                    <span ng-show="frmUpdateTag.TagCategoryID.$invalid" class="has-error">Phải chọn danh mục</span>
+
+                    <input type="hidden" name="parentId" ng-model="tag.TagCategoryID" />
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button ui-sref="tags" class="btn btn-default">Hủy</button>
+                <button type="submit" ng-disabled="frmUpdateTag.$invalid" class="btn btn-info">Lưu lại</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+    <!-- /.box -->
+</section><!-- /.content -->

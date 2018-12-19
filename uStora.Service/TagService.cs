@@ -10,7 +10,8 @@ namespace uStora.Service
     public interface ITagService : ICrudService<Tag>, IGetDataService<Tag>
     {
         IEnumerable<Tag> GetAllTags();
-
+        Tag FindByString(string id);
+        void IsDeleted(int id);
 
     }
 
@@ -60,6 +61,11 @@ namespace uStora.Service
         {
             return _tagRepository.GetSingleById(id);
         }
+
+        public Tag FindByString(string id)
+        {
+            return _tagRepository.GetSingleById(id);
+        }
         public IEnumerable<Tag> GetAllTags()
         {
             return _tagRepository.GetMulti(x=>x.IsDeleted==false);
@@ -73,11 +79,11 @@ namespace uStora.Service
                 return _tagRepository.GetMulti(x=>x.IsDeleted==false);
         }
 
-        //public void IsDeleted(int id)
-        //{
-        //    var category = FindById(id);
-        //    category.IsDeleted = true;
-        //    SaveChanges();
-        //}
+        public void IsDeleted(int id)
+        {
+            var category = FindById(id);
+            category.IsDeleted = true;
+            SaveChanges();
+        }
     }
 }

@@ -374,10 +374,10 @@
     <Content Include="app\components\tags\tag.module.js" />
     <Content Include="app\components\tags\tagAddController.js" />
     <Content Include="app\components\tags\tagAddView.html" />
-    <Content Include="app\components\tags\orderDetailController.js" />
-    <Content Include="app\components\tags\orderDetailView.html" />
-    <Content Include="app\components\tags\orderEditController.js" />
-    <Content Include="app\components\tags\orderEditView.html" />
+    <Content Include="app\components\tags\tagDetailController.js" />
+    <Content Include="app\components\tags\tagDetailView.html" />
+    <Content Include="app\components\tags\tagEditController.js" />
+    <Content Include="app\components\tags\tagEditView.html" />
     <Content Include="app\components\tags\tagListController.js" />
     <Content Include="app\components\tags\tagListView.html" />
     <Content Include="app\components\orders\order.module.js" />

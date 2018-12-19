@@ -145,6 +145,7 @@ namespace uStora.Web.API
 
         [Route("getall")]
         [HttpGet]
+        [AllowAnonymous]
         [Authorize(Roles = "ViewUser")]
         public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 20, string filter = null)
         {
@@ -239,8 +240,8 @@ namespace uStora.Web.API
 
         [Route("create")]
         [HttpPost]
-        [AllowAnonymous]
-        //[Authorize(Roles = "AddUser")]
+        //[AllowAnonymous]
+        [Authorize(Roles = "AddUser")]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productVm)
         {
             return CreateHttpResponse(request, () =>

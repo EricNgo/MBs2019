@@ -70,53 +70,24 @@ namespace uStora.Web.API
             });
         }
 
-        //[Route("manufactors")]
-        //[HttpGet]
-        //public HttpResponseMessage GetManufactors(HttpRequestMessage request)
-        //{
-        //    Func<HttpResponseMessage> func = () =>
-        //    {
-        //        var model = _manufactorService.GetAll();
+     
 
-        //       var response = request.CreateResponse(HttpStatusCode.OK, model);
-        //        return response;
-        //    };
-        //    return CreateHttpResponse(request, func);
-        //}
-
-        //[Route("listbrands")]
-        //[HttpGet]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage ListBrands(HttpRequestMessage request)
-        //{
-        //    Func<HttpResponseMessage> func = () =>
-        //    {
-        //        var model = _brandService.GetAll("");
-
-        //        var responseData = Mapper.Map<IEnumerable<Brand>, IEnumerable<BrandViewModel>>(model);
-
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
-        //        return response;
-        //    };
-        //    return CreateHttpResponse(request, func);
-        //}
-
-        //[Route("getbyid/{id:int}")]
-        //[HttpGet]
+        [Route("getbyid/{id:int}")]
+        [HttpGet]
         //[Authorize(Roles = "UpdateUser")]
-        //public HttpResponseMessage GetById(HttpRequestMessage request, int id)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        var model = _productService.FindById(id);
+        public HttpResponseMessage GetById(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _tagCategoryService.FindById(id);
 
-        //        var responseData = Mapper.Map<Product, ProductViewModel>(model);
+                var responseData = Mapper.Map<TagCategory, TagCategoryViewModel>(model);
 
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
         [Route("getall")]
         [HttpGet]
@@ -146,188 +117,119 @@ namespace uStora.Web.API
             });
         }
 
-        //[Route("getstock")]
-        //[HttpGet]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage GetStock(HttpRequestMessage request, int page, int pageSize = 20, string filter = null)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        int totalRow = 0;
-        //        var model = _productService.GetAll(filter);
-
-        //        totalRow = model.Count();
-        //        var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
-
-        //        var responseData = Mapper.Map<IEnumerable<Product>, IEnumerable<StockViewModel>>(query);
-
-        //        var paginationSet = new PaginationSet<StockViewModel>()
-        //        {
-        //            Items = responseData,
-        //            Page = page,
-        //            TotalCount = totalRow,
-        //            TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
-        //        };
-
-        //         return request.CreateResponse(HttpStatusCode.OK, paginationSet);
-
-        //    });
-        //}
-
-        //[Route("updatestock")]
-        //[HttpPut]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage UpdateStock(HttpRequestMessage request, IList<StockViewModel> models)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        try
-        //        {
-        //            foreach (var m in models)
-        //            {
-        //                var product = _productService.FindById(m.ProductId);
-        //                product.Quantity += m.AdjustedQuantity;
-        //                if (product.Quantity <= 0)
-        //                {
-        //                    product.StockStatus = (int)StockStatus.HetHang;
-        //                } 
-        //                else
-        //                {                           
-        //                    product.StockStatus = m.StockStatus;
-        //                }
 
 
-        //                _productService.Update(product);
-        //            }
-
-        //            _unitOfWork.Commit();
-
-        //            return request.CreateResponse(HttpStatusCode.OK);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-        //        }
-
-        //    });
-        //}
-
-
-        //[Route("create")]
-        //[HttpPost]
-        //[AllowAnonymous]
+        [Route("create")]
+        [HttpPost]
+        [AllowAnonymous]
         //[Authorize(Roles = "AddUser")]
-        //public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productVm)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var newProduct = new Product();
-        //            newProduct.UpdateProduct(productVm);
-        //            newProduct.StockStatus = productVm.Quantity > 0 ? productVm.Quantity.Value : (int)ProductStatus.HetHang;
-        //            newProduct.CreatedDate = DateTime.Now;
-        //            newProduct.CreatedBy = User.Identity.Name;
-        //            _productService.Add(newProduct);
-        //            _productService.SaveChanges();
+        public HttpResponseMessage Create(HttpRequestMessage request, TagCategoryViewModel tagCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var newTagCategory = new TagCategory();
+                    newTagCategory.UpdateTagCategory(tagCategoryVm);
+                 
+                    _tagCategoryService.Add(newTagCategory);
+                    _tagCategoryService.SaveChanges();
 
-        //            var responseData = Mapper.Map<Product, ProductViewModel>(newProduct);
-        //            response = request.CreateResponse(HttpStatusCode.Created, responseData);
-        //        }
+                    var responseData = Mapper.Map<TagCategory, TagCategoryViewModel>(newTagCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
-        //[Route("update")]
-        //[HttpPut]
-        //[AllowAnonymous]
+        [Route("update")]
+        [HttpPut]
+        [AllowAnonymous]
         //[Authorize(Roles = "UpdateUser")]
-        //public HttpResponseMessage Update(HttpRequestMessage request, ProductViewModel productVm)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var dbProduct = _productService.FindById(productVm.ID);
+        public HttpResponseMessage Update(HttpRequestMessage request, TagCategoryViewModel tagCategoryVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var dbTagCategory = _tagCategoryService.FindById(tagCategoryVm.ID);
 
-        //            dbProduct.UpdateProduct(productVm);
-        //            dbProduct.UpdatedDate = DateTime.Now;
-        //            dbProduct.UpdatedBy = User.Identity.Name;
-        //            dbProduct.StockStatus = productVm.Quantity > 0 ? productVm.Quantity.Value : (int)ProductStatus.HetHang;
-        //            _productService.Update(dbProduct);
-        //            _productService.SaveChanges();
+                    dbTagCategory.UpdateTagCategory(tagCategoryVm);
+                  
+                    _tagCategoryService.Update(dbTagCategory);
+                    _tagCategoryService.SaveChanges();
 
-        //            var responseData = Mapper.Map<Product, ProductViewModel>(dbProduct);
-        //            response = request.CreateResponse(HttpStatusCode.Created, responseData);
-        //        }
+                    var responseData = Mapper.Map<TagCategory, TagCategoryViewModel>(dbTagCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
-        //[Route("delete")]
-        //[HttpDelete]
-        //[AllowAnonymous]
-        //[Authorize(Roles = "DeleteUser")]
-        //public HttpResponseMessage Delete(HttpRequestMessage request, int id)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            _productService.IsDeleted(id);
-        //            response = request.CreateResponse(HttpStatusCode.OK);
-        //        }
+        [Route("delete")]
+        [HttpDelete]
+        [AllowAnonymous]
+        [Authorize(Roles = "DeleteUser")]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    _tagCategoryService.IsDeleted(id);
+                    response = request.CreateResponse(HttpStatusCode.OK);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
-        //[Route("deletemulti")]
-        //[HttpDelete]
-        //[Authorize(Roles = "DeleteUser")]
-        //[AllowAnonymous]
-        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string selectedProducts)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var listProductCategory = new JavaScriptSerializer().Deserialize<List<int>>(selectedProducts);
-        //            foreach (var item in listProductCategory)
-        //            {
-        //                _productService.Delete(item);
-        //            }
+        [Route("deletemulti")]
+        [HttpDelete]
+        [Authorize(Roles = "DeleteUser")]
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string selectedTagCategories)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var listTagCategory = new JavaScriptSerializer().Deserialize<List<int>>(selectedTagCategories);
+                    foreach (var item in listTagCategory)
+                    {
+                        _tagCategoryService.Delete(item);
+                    }
 
-        //            _productService.SaveChanges();
+                    _tagCategoryService.SaveChanges();
 
-        //            response = request.CreateResponse(HttpStatusCode.OK, listProductCategory.Count);
-        //        }
+                    response = request.CreateResponse(HttpStatusCode.OK, listTagCategory.Count);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
         #endregion Methods
 

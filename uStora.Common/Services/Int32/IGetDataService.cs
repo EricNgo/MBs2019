@@ -9,6 +9,7 @@ namespace uStora.Common.Services.Int32
     public interface IGetDataService<T> where T : class
     {
         T FindById(int id);
+        //T FindByString(string id);
         IEnumerable<T> GetAll(string keyword = null);
     }
 }

@@ -71,53 +71,24 @@ namespace uStora.Web.API
             return CreateHttpResponse(request, func);
         }
 
-        //[Route("manufactors")]
-        //[HttpGet]
-        //public HttpResponseMessage GetManufactors(HttpRequestMessage request)
-        //{
-        //    Func<HttpResponseMessage> func = () =>
-        //    {
-        //        var model = _manufactorService.GetAll();
 
-        //       var response = request.CreateResponse(HttpStatusCode.OK, model);
-        //        return response;
-        //    };
-        //    return CreateHttpResponse(request, func);
-        //}
-
-        //[Route("listbrands")]
-        //[HttpGet]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage ListBrands(HttpRequestMessage request)
-        //{
-        //    Func<HttpResponseMessage> func = () =>
-        //    {
-        //        var model = _brandService.GetAll("");
-
-        //        var responseData = Mapper.Map<IEnumerable<Brand>, IEnumerable<BrandViewModel>>(model);
-
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
-        //        return response;
-        //    };
-        //    return CreateHttpResponse(request, func);
-        //}
-
-        //[Route("getbyid/{id:int}")]
-        //[HttpGet]
+        [Route("getbyid/{id}")]
+        [HttpGet]
         //[Authorize(Roles = "UpdateUser")]
-        //public HttpResponseMessage GetById(HttpRequestMessage request, int id)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        var model = _productService.FindById(id);
+        [AllowAnonymous]
+        public HttpResponseMessage GetById(HttpRequestMessage request, string id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _tagService.FindByString(id);
 
-        //        var responseData = Mapper.Map<Product, ProductViewModel>(model);
+                var responseData = Mapper.Map<Tag, TagViewModel>(model);
 
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
         [Route("getall")]
         [HttpGet]
@@ -147,71 +118,6 @@ namespace uStora.Web.API
             });
         }
 
-        //[Route("getstock")]
-        //[HttpGet]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage GetStock(HttpRequestMessage request, int page, int pageSize = 20, string filter = null)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        int totalRow = 0;
-        //        var model = _productService.GetAll(filter);
-
-        //        totalRow = model.Count();
-        //        var query = model.OrderByDescending(x => x.CreatedDate).Skip(page * pageSize).Take(pageSize);
-
-        //        var responseData = Mapper.Map<IEnumerable<Product>, IEnumerable<StockViewModel>>(query);
-
-        //        var paginationSet = new PaginationSet<StockViewModel>()
-        //        {
-        //            Items = responseData,
-        //            Page = page,
-        //            TotalCount = totalRow,
-        //            TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
-        //        };
-
-        //         return request.CreateResponse(HttpStatusCode.OK, paginationSet);
-
-        //    });
-        //}
-
-        //[Route("updatestock")]
-        //[HttpPut]
-        //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage UpdateStock(HttpRequestMessage request, IList<StockViewModel> models)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        try
-        //        {
-        //            foreach (var m in models)
-        //            {
-        //                var product = _productService.FindById(m.ProductId);
-        //                product.Quantity += m.AdjustedQuantity;
-        //                if (product.Quantity <= 0)
-        //                {
-        //                    product.StockStatus = (int)StockStatus.HetHang;
-        //                } 
-        //                else
-        //                {                           
-        //                    product.StockStatus = m.StockStatus;
-        //                }
-
-
-        //                _productService.Update(product);
-        //            }
-
-        //            _unitOfWork.Commit();
-
-        //            return request.CreateResponse(HttpStatusCode.OK);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-        //        }
-
-        //    });
-        //}
 
 
         [Route("create")]
@@ -243,90 +149,88 @@ namespace uStora.Web.API
             });
         }
 
-        //[Route("update")]
-        //[HttpPut]
-        //[AllowAnonymous]
+        [Route("update")]
+        [HttpPut]
+        [AllowAnonymous]
         //[Authorize(Roles = "UpdateUser")]
-        //public HttpResponseMessage Update(HttpRequestMessage request, ProductViewModel productVm)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var dbProduct = _productService.FindById(productVm.ID);
+        public HttpResponseMessage Update(HttpRequestMessage request, TagViewModel tagVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var dbTag = _tagService.FindByString(tagVm.ID);
 
-        //            dbProduct.UpdateProduct(productVm);
-        //            dbProduct.UpdatedDate = DateTime.Now;
-        //            dbProduct.UpdatedBy = User.Identity.Name;
-        //            dbProduct.StockStatus = productVm.Quantity > 0 ? productVm.Quantity.Value : (int)ProductStatus.HetHang;
-        //            _productService.Update(dbProduct);
-        //            _productService.SaveChanges();
+                    dbTag.UpdateTag(tagVm);
+                  
+                    _tagService.Update(dbTag);
+                    _tagService.SaveChanges();
 
-        //            var responseData = Mapper.Map<Product, ProductViewModel>(dbProduct);
-        //            response = request.CreateResponse(HttpStatusCode.Created, responseData);
-        //        }
+                    var responseData = Mapper.Map<Tag, TagViewModel>(dbTag);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
-        //[Route("delete")]
-        //[HttpDelete]
-        //[AllowAnonymous]
+        [Route("delete")]
+        [HttpDelete]
+        [AllowAnonymous]
         //[Authorize(Roles = "DeleteUser")]
-        //public HttpResponseMessage Delete(HttpRequestMessage request, int id)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            _productService.IsDeleted(id);
-        //            response = request.CreateResponse(HttpStatusCode.OK);
-        //        }
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    _tagService.IsDeleted(id);
+                    response = request.CreateResponse(HttpStatusCode.OK);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
-        //[Route("deletemulti")]
-        //[HttpDelete]
+        [Route("deletemulti")]
+        [HttpDelete]
         //[Authorize(Roles = "DeleteUser")]
-        //[AllowAnonymous]
-        //public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string selectedProducts)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        HttpResponseMessage response = null;
-        //        if (!ModelState.IsValid)
-        //        {
-        //            response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var listProductCategory = new JavaScriptSerializer().Deserialize<List<int>>(selectedProducts);
-        //            foreach (var item in listProductCategory)
-        //            {
-        //                _productService.Delete(item);
-        //            }
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string selectedTags)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var listTag= new JavaScriptSerializer().Deserialize<List<int>>(selectedTags);
+                    foreach (var item in listTag)
+                    {
+                        _tagService.Delete(item);
+                    }
 
-        //            _productService.SaveChanges();
+                    _tagService.SaveChanges();
 
-        //            response = request.CreateResponse(HttpStatusCode.OK, listProductCategory.Count);
-        //        }
+                    response = request.CreateResponse(HttpStatusCode.OK, listTag.Count);
+                }
 
-        //        return response;
-        //    });
-        //}
+                return response;
+            });
+        }
 
         #endregion Methods
 

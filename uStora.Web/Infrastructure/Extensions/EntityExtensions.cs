@@ -79,6 +79,7 @@ namespace uStora.Web.Infrastructure.Extensions
             tag.ID = tagViewModel.ID;
             tag.Name = tagViewModel.Name;
             tag.Type = tagViewModel.Type;
+            tag.IsDeleted = tagViewModel.IsDeleted;
             tag.TagCategoryID = tagViewModel.TagCategoryID;
 
 

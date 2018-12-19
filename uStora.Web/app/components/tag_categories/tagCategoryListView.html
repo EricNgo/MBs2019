@@ -1,11 +1,11 @@
 ﻿<!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Slide
+    Quản lý Tags
     </h1>
     <ol class="breadcrumb">
         <li><a ui-sref="home"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-        <li><a ui-sref="tagcategories">Tag Category</a></li>
+        <li><a ui-sref="tag_categories">Tag Category</a></li>
         <li class="active">Danh sách</li>
     </ol>
 </section>
@@ -31,7 +31,7 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
                 <div class="col-lg-6">
-                    <button class="btn btn-primary" ui-sref="add_tagcategory">Thêm mới</button>
+                    <button class="btn btn-primary" ui-sref="add_tag_category">Thêm mới</button>
                     <button class="btn btn-danger" id="btnDelete" disabled ng-click="deleteTagMulti()">Xóa dòng đã chọn</button>
                 </div>
             </div>
@@ -62,11 +62,11 @@
                  
 
                             <td>
-                                <button class="btn btn-sm btn-info cus-title" ui-sref="tagcategory_detail({id:item.ID})">
+                                <!--<button class="btn btn-sm btn-info cus-title" ui-sref="tag_category_detail({id:item.ID})">
                                     <i class="fa fa-eye" data-toggle="tooltip" title="Chi tiết">
                                     </i>
-                                </button>
-                                <button class="btn btn-sm btn-primary cus-title" ui-sref="edit_tagcategory({id:item.ID})">
+                                </button>-->
+                                <button class="btn btn-sm btn-primary cus-title" ui-sref="edit_tag_category({id:item.ID})">
                                     <i class="fa fa-pencil" data-toggle="tooltip" title="Chỉnh sửa">
                                     </i>
                                 </button>
