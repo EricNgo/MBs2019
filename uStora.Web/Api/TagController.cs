@@ -53,22 +53,23 @@ namespace uStora.Web.API
 
         #region Methods
 
-        //[Route("getallparents")]
-        //[HttpGet]
+        [Route("getallparents")]
+        [HttpGet]
         //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage GetAll(HttpRequestMessage request)
-        //{
-        //    Func<HttpResponseMessage> func = () =>
-        //    {
-        //        var model = _productService.GetAll();
+        [AllowAnonymous]
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
+        {
+            Func<HttpResponseMessage> func = () =>
+            {
+                var model = _tagService.GetAll();
 
-        //        var responseData = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(model);
+                var responseData = Mapper.Map<IEnumerable<Tag>, IEnumerable<TagViewModel>>(model);
 
-        //        var response = request.CreateResponse(HttpStatusCode.OK, responseData);
-        //        return response;
-        //    };
-        //    return CreateHttpResponse(request, func);
-        //}
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            };
+            return CreateHttpResponse(request, func);
+        }
 
         //[Route("manufactors")]
         //[HttpGet]

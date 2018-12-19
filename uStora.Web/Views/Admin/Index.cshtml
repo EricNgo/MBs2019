@@ -8,6 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap -->
     <link href="/Assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/Admin/css/jquery-ui.css" rel="stylesheet" />  <!--2018-->
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/3d3a53909b.js"></script>
     <!-- Ionicons -->
@@ -15,7 +17,7 @@
     <!-- Theme style -->
     <link href="/Assets/libs/toastr/toastr.min.css" rel="stylesheet" />
     <link href="~/Assets/libs/angular-chart.js/dist/angular-chart.min.css" rel="stylesheet" />
-    <link href="/Assets/libs/angular-loading-bar/build/loading-bar.min.css"  type='text/css' media='all' rel="stylesheet" />
+    <link href="/Assets/libs/angular-loading-bar/build/loading-bar.min.css" type='text/css' media='all' rel="stylesheet" />
     <link href="~/Assets/libs/datetimepicker/build/jquery.datetimepicker.min.css" rel="stylesheet" />
     <link href="~/Assets/libs/angular-ui-select/dist/select.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css">
@@ -24,6 +26,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,11 +38,14 @@
     <div ui-view></div>
     <!-- jQuery -->
     <script src="~/Assets/libs/jquery/dist/jquery.min.js"></script>
+
     <!-- SignalR -->
     <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
     <script src="/signalr/hubs"></script>
     <!-- Bootstrap -->
     <script src="~/Assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
     <!-- SlimScroll -->
     <script src="~/Assets/libs/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -58,6 +64,8 @@
     <script src="~/Assets/libs/bootbox/bootbox.js"></script>
     <script src="~/Assets/libs/ckeditor/ckeditor.js"></script>
     <script src="~/Assets/libs/ckfinder/ckfinder.js"></script>
+
+
     <script src="~/Assets/libs/ngBootbox/ngBootbox.js"></script>
     <script src="~/Assets/libs/ng-ckeditor/ng-ckeditor.js"></script>
     <script src="~/Assets/libs/angular-local-storage/dist/angular-local-storage.min.js"></script>
@@ -100,8 +108,12 @@
     <script src="~/app/components/tag_categories/tagCategoryEditController.js"></script>
     <script src="~/app/components/tag_categories/tagCategoryAddController.js"></script>
     <script src="/app/components/product_categories/productCategoryListController.js"></script>
+
     <script src="/app/components/product_categories/productCategoryAddController.js"></script>
+    <script src="~/Assets/libs/jquery-ui/ui/jquery-ui-11.2.js"></script> <!-- 2018-->
     <script src="/app/components/products/productAddController.js"></script>
+
+
     <script src="~/app/components/application_groups/applicationGroupAddController.js"></script>
     <script src="~/app/components/application_roles/applicationRoleAddController.js"></script>
     <script src="~/app/components/application_users/applicationUserAddController.js"></script>

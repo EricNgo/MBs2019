@@ -2,6 +2,7 @@
 using System.Linq;
 using uStora.Common;
 using uStora.Common.Services.Int64;
+using uStora.Common.ViewModels;
 using uStora.Data.Infrastructure;
 using uStora.Data.Repositories;
 using uStora.Model.Models;
@@ -12,6 +13,7 @@ namespace uStora.Service
     {
         #region Methods
 
+        IEnumerable<TagbyTagCategoryViewModel> GetTagsByTagCategories();
         IEnumerable<Product> GetLastest(int top);
 
         IEnumerable<Product> GetTopSales(int top);
@@ -34,6 +36,9 @@ namespace uStora.Service
 
         IEnumerable<Tag> GetTagsByProduct(long id);
 
+        //Get all tags  Group By tag categories by all products
+        //IEnumerable<Tag> GetAllTagsGroupByTagCategoriesByAllProducts();
+
         IEnumerable<Product> ProductsByTag(string tagId, string sort, int brandid, int page, int pageSize, out int totalRow);
 
         void IncreaseView(long id);
@@ -43,6 +48,10 @@ namespace uStora.Service
         bool CanPurchase(long productId, int quantity);
 
         Tag GetTag(string tagId);
+
+  
+
+
 
         IEnumerable<Product> GetHot(int top);
         
@@ -54,15 +63,18 @@ namespace uStora.Service
         private IProductRepository _productRepository;
         private IProductTagRepository _productTagRepository;
         private ITagRepository _tagRepository;
+        private ITagCategoryRepository _tagCategoryRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository, IProductTagRepository productTagRepository,
+        public ProductService(IProductRepository productRepository, IProductTagRepository productTagRepository, ITagCategoryRepository tagCategoryRepository,
             ITagRepository tagRepository, IUnitOfWork unitOfWork
             )
         {
             _productRepository = productRepository;
             _productTagRepository = productTagRepository;
+            _productTagRepository = productTagRepository;
             _tagRepository = tagRepository;
+            _tagCategoryRepository = tagCategoryRepository;
             _unitOfWork = unitOfWork;
         }
         #region Methods
@@ -315,6 +327,7 @@ namespace uStora.Service
         {
             return _productTagRepository.GetMulti(x => x.ProductID == id, new string[] { "Tag" }).Select(y => y.Tag);
         }
+ 
 
         public IEnumerable<Product> ProductsByTag(string tagId, string sort, int brandid, int page, int pageSize, out int totalRow)
         {
@@ -363,6 +376,11 @@ namespace uStora.Service
         public Tag GetTag(string tagId)
         {
             return _tagRepository.GetSingleByCondition(x => x.ID == tagId);
+        }
+
+        public IEnumerable<TagbyTagCategoryViewModel> GetTagsByTagCategories()
+        {
+            return _tagRepository.GetTagsByTagCategories();
         }
 
         public IEnumerable<Product> GetTopView(int top)

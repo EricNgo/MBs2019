@@ -16,6 +16,8 @@ namespace uStora.Web.Models
 
         public string Type { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public virtual IEnumerable<PostTagViewModel> PostTags { get; set; }
     }
 }

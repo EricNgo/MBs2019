@@ -17,14 +17,15 @@ namespace uStora.Web.Controllers
     public class ProductController : Controller
     {
         private IProductService _productService;
+        private ITagCategoryService _tagCategoryService;
         private readonly IManufactorService _manufactorService;
         private IBrandService _brandService;
         private IProductCategoryService _productCategoryService;
         private IExportManagerService _exportManager;
         private IImportManagerService _importManager;
 
-        public ProductController(IProductService productService,
-            IProductCategoryService productCategoryService,
+        public ProductController(IProductService productService, ITagCategoryService tagCategoryService,
+        IProductCategoryService productCategoryService,
             IManufactorService manufactorService,
             IBrandService brandService, IExportManagerService exportManager,
             IImportManagerService importManager)
@@ -33,6 +34,7 @@ namespace uStora.Web.Controllers
             _importManager = importManager;
             _exportManager = exportManager;
             _productService = productService;
+               _tagCategoryService = tagCategoryService;
             _brandService = brandService;
             _productCategoryService = productCategoryService;
         }
@@ -210,9 +212,37 @@ namespace uStora.Web.Controllers
         }
 
 
-        public ActionResult Customize()
+        public ActionResult Customize(int page = 1, int brandid = 0, string sort = "", int manuId = 0)
         {
-            return View();
+
+            int pageSize = int.Parse(ConfigHelper.GetByKey("pageSize"));
+            int totalRow = 0;
+            var product = _productService.GetAllPaging(page, brandid, manuId, sort, pageSize, out totalRow);
+            var productVm = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(product);
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+            var tag = _productService.GetTagsByTagCategories();
+            var tagc = _tagCategoryService.GetAll();
+
+
+            //var tagVM = Mapper.Map<IEnumerable<Tag>, IEnumerable<TagViewModel>>(tag);
+            var tagcVM = Mapper.Map<IEnumerable<TagCategory>, IEnumerable<TagCategoryViewModel>>(tagc);
+
+            ViewBag.Tag = tag;
+            ViewBag.TagCategory = tagcVM;
+            ViewBag.SortKey = sort;
+
+            var paginationSet = new PaginationSet<ProductViewModel>()
+            {
+                Items = productVm,
+                MaxPage = int.Parse(ConfigHelper.GetByKey("maxPage")),
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage
+            };
+       
+ 
+
+            return View(paginationSet);
         }
         #endregion
     }

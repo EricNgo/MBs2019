@@ -461,6 +461,7 @@
     <Content Include="Assets\Admin\css\AdminLTE.css" />
     <Content Include="Assets\Admin\css\AdminLTE.min.css" />
     <Content Include="Assets\Admin\css\customized.css" />
+    <Content Include="Assets\Admin\css\jquery-ui.css" />
     <Content Include="Assets\Admin\css\skins\skin-black-light.css" />
     <Content Include="Assets\Admin\css\skins\skin-black-light.min.css" />
     <Content Include="Assets\Admin\css\skins\skin-black.css" />
@@ -531,6 +532,7 @@
     <Content Include="Assets\Client\css\responsive.css" />
     <Content Include="Assets\Client\css\search-box.css" />
     <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\css\tagsort.min.css" />
     <Content Include="Assets\Client\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assets\Client\img\bank_logo.png" />
@@ -560,6 +562,7 @@
     <Content Include="Assets\Client\js\controllers\qrScanner.js" />
     <Content Include="Assets\Client\js\controllers\shoppingCart.js" />
     <Content Include="Assets\Client\js\myLocation.js" />
+    <Content Include="Assets\Client\js\tagsort.min.js" />
     <Content Include="Assets\Client\templates\newUser.html" />
     <Content Include="Assets\Client\templates\orderTemplate.html" />
     <Content Include="Assets\libs\angular-chart.js\angular-chart.js" />
@@ -4681,6 +4684,7 @@
     <Content Include="Assets\libs\jquery-ui\ui\i18n\datepicker-zh-CN.js" />
     <Content Include="Assets\libs\jquery-ui\ui\i18n\datepicker-zh-HK.js" />
     <Content Include="Assets\libs\jquery-ui\ui\i18n\datepicker-zh-TW.js" />
+    <Content Include="Assets\libs\jquery-ui\ui\jquery-ui-11.2.js" />
     <Content Include="Assets\libs\jquery-ui\ui\menu.js" />
     <Content Include="Assets\libs\jquery-ui\ui\minified\accordion.min.js" />
     <Content Include="Assets\libs\jquery-ui\ui\minified\autocomplete.min.js" />
@@ -4921,6 +4925,8 @@
     <Content Include="Assets\libs\jquery\src\var\support.js" />
     <Content Include="Assets\libs\jquery\src\var\toString.js" />
     <Content Include="Assets\libs\jquery\src\wrap.js" />
+    <Content Include="Assets\libs\magicsugg\magicsuggest.css" />
+    <Content Include="Assets\libs\magicsugg\magicsuggest.js" />
     <Content Include="Assets\libs\mustache\mustache.js" />
     <Content Include="Assets\libs\mustache\mustache.min.js" />
     <Content Include="Assets\libs\mustache\spec\_files\bom_as_whitespace.js" />

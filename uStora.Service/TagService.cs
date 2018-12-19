@@ -9,6 +9,8 @@ namespace uStora.Service
 {
     public interface ITagService : ICrudService<Tag>, IGetDataService<Tag>
     {
+        IEnumerable<Tag> GetAllTags();
+
 
     }
 
@@ -43,7 +45,7 @@ namespace uStora.Service
         public IEnumerable<Tag> GetAll()
         {
        
-                return _tagRepository.GetAll();
+                return _tagRepository.GetMulti(x=>x.IsDeleted==false);
 
         }
 
@@ -52,22 +54,23 @@ namespace uStora.Service
             _unitOfWork.Commit();
         }
 
-        //public IEnumerable<TagCategory> GetAllByParentID(int parentID)
-        //{
-        //    return _tagCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentID);
-        //}
+
 
         public Tag FindById(int id)
         {
             return _tagRepository.GetSingleById(id);
         }
+        public IEnumerable<Tag> GetAllTags()
+        {
+            return _tagRepository.GetMulti(x=>x.IsDeleted==false);
+        }
 
         public IEnumerable<Tag> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _tagRepository.GetMulti(x => x.Name.Contains(keyword));
+                return _tagRepository.GetMulti(x => x.Name.Contains(keyword) && x.IsDeleted == false);
             else
-                return _tagRepository.GetAll();
+                return _tagRepository.GetMulti(x=>x.IsDeleted==false);
         }
 
         //public void IsDeleted(int id)

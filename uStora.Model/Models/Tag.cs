@@ -20,8 +20,11 @@ namespace uStora.Model.Models
         [Required]
         public int TagCategoryID { get; set; }
 
+
+
         [MaxLength(250)]
         public string Type { get; set; }
+        public bool IsDeleted { get; set; }
 
         [ForeignKey("TagCategoryID")]
         public TagCategory TagCategory { get; set; }

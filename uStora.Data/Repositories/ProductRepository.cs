@@ -2,12 +2,15 @@
 using uStora.Model.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.SqlClient;
 
 namespace uStora.Data.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
         IEnumerable<Product> GetProductsByTag(string tagId, int brandId);
+
+        //IEnumerable<Product> GetProductsByAllTagsSortTagCategories();
     }
 
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
@@ -16,6 +19,15 @@ namespace uStora.Data.Repositories
             : base(dbFactory)
         {
         }
+
+        //public IEnumerable<Product> GetProductsByAllTagsSortTagCategories()
+        //{
+        //    //var query = new SqlParameter[]{
+        //    //    new SqlParameter("@_tags",_tags)
+        //    //};
+        //    //totalRow = query.Count();
+        //    return DbContext.Database.SqlQuery<AllTagsViewModel>("whereistag @_tags");
+        //}
 
         public IEnumerable<Product> GetProductsByTag(string tagId, int brandId)
         {

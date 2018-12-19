@@ -91,6 +91,7 @@
     <Compile Include="Services\Int64\IGetDataService.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="ViewModels\OrderClientViewModel.cs" />
+    <Compile Include="ViewModels\TagbyTagCategoryViewModel.cs" />
     <Compile Include="ViewModels\RevenueStatisticViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

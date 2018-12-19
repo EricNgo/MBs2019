@@ -39,6 +39,7 @@ namespace uStora.Data
         public DbSet<SupportOnline> SupportOnlines { get; set; }
         public DbSet<SystemConfig> SystemConfigs { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<TagCategory> TagCategories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ContactDetail> ContactDetails { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }

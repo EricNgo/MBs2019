@@ -28,6 +28,7 @@ namespace uStora.Web.API
 
         private IProductService _productService;
         private IBrandService _brandService;
+        private ITagService _tagService;
         private IManufactorService _manufactorService;
         private IExportManagerService _exportManager;
         private IImportManagerService _importManager;
@@ -35,7 +36,9 @@ namespace uStora.Web.API
 
         public ProductController(IErrorService errorService,
             IManufactorService manufactorService,
-            IProductService productService, IBrandService brandService,
+            IProductService productService,
+            IBrandService brandService,
+                    ITagService tagService,
             IExportManagerService exportManager,
             IUnitOfWork unitOfWork,
             IImportManagerService importManager)
@@ -43,6 +46,7 @@ namespace uStora.Web.API
         {
             _manufactorService = manufactorService;
             _productService = productService;
+            _tagService = tagService;
             _brandService = brandService;
             _exportManager = exportManager;
             _importManager = importManager;
@@ -86,7 +90,8 @@ namespace uStora.Web.API
 
         [Route("listbrands")]
         [HttpGet]
-        [Authorize(Roles = "ViewUser")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "ViewUser")]
         public HttpResponseMessage ListBrands(HttpRequestMessage request)
         {
             Func<HttpResponseMessage> func = () =>
@@ -94,6 +99,26 @@ namespace uStora.Web.API
                 var model = _brandService.GetAll("");
 
                 var responseData = Mapper.Map<IEnumerable<Brand>, IEnumerable<BrandViewModel>>(model);
+
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            };
+            return CreateHttpResponse(request, func);
+        }
+
+
+
+        [Route("listtags")]
+        [HttpGet]
+        //[Authorize(Roles = "ViewUser")]
+        [AllowAnonymous]
+        public HttpResponseMessage ListTags(HttpRequestMessage request)
+        {
+            Func<HttpResponseMessage> func = () =>
+            {
+                var model = _tagService.GetAllTags();
+
+                var responseData = Mapper.Map<IEnumerable<Tag>, IEnumerable<TagViewModel>>(model);
 
                 var response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
@@ -215,7 +240,7 @@ namespace uStora.Web.API
         [Route("create")]
         [HttpPost]
         [AllowAnonymous]
-        [Authorize(Roles = "AddUser")]
+        //[Authorize(Roles = "AddUser")]
         public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productVm)
         {
             return CreateHttpResponse(request, () =>
@@ -223,7 +248,9 @@ namespace uStora.Web.API
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
+
                     response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                    var errors = ModelState.SelectMany(x => x.Value.Errors.Select(z => z.Exception));
                 }
                 else
                 {

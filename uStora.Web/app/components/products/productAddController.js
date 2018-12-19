@@ -8,11 +8,15 @@
         }
         $scope.flatFolders = [];
         $scope.brands = [];
+  
         $scope.loadBrands = loadBrands;
+        $scope.loadTags = loadTags;
         $scope.loadProductCategories = loadProductCategories;
         $scope.AddProduct = AddProduct;
         $scope.GetSeoTitle = GetSeoTitle;
         $scope.moreImages = [];
+        //$scope.availableTags = [{ name: 'ocho', description: null, id: 1 }, { name: 'manosc', description: null, id: 2 }, { name: 'vietnamo', description: null, id: 3 }];
+        $scope.avaiTags = [];
         $scope.thisClose = thisClose;
         $scope.ckeditorOptions = {
             languague: 'vi',
@@ -117,8 +121,62 @@
             }
         };
 
+        function loadTags() {
+            apiService.get('/api/product/listtags', null,
+                function (result) {
+                    $scope.avaiTags = result.data;
+                    $scope.finalArray = $scope.avaiTags.map(function (obj) {
+                        return obj.Name;
+                    });
+                }, function () {
+                    notificationService.displayError("Không có tags nào được tìm thấy.");
+                })
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#tags")
+                // don't navigate away from the field on tab when selecting an item
+                .on("keydown", function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB &&
+                        $(this).autocomplete("instance").menu.active) {
+                        event.preventDefault();
+                    }
+                })
+                .autocomplete({
+                    minLength: 0,
+                    source: function (request, response) {
+                        // delegate back to autocomplete, but extract the last term
+                        response($.ui.autocomplete.filter(
+                            $scope.finalArray, extractLast(request.term)));
+                    },
+                    focus: function () {
+                        // prevent value inserted on focus
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        var terms = split(this.value);
+                        // remove the current input
+                        terms.pop();
+                        // add the selected item
+                        terms.push(ui.item.value);
+                        // add placeholder to get the comma-and-space at the end
+                        terms.push("");
+                        this.value = terms.join(", ");
+                        return false;
+                    }
+                });
+        };
+  
         loadProductCategories();
+
         loadBrands();
+     
         loadManus();
+        loadTags();
     }
 })(angular.module('uStora.products'));

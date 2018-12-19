@@ -144,6 +144,14 @@
     <Compile Include="Migrations\201812150544250_updatetest4.Designer.cs">
       <DependentUpon>201812150544250_updatetest4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812170833089_ocncho.cs" />
+    <Compile Include="Migrations\201812170833089_ocncho.Designer.cs">
+      <DependentUpon>201812170833089_ocncho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812171125186_addTagsDeteleted.cs" />
+    <Compile Include="Migrations\201812171125186_addTagsDeteleted.Designer.cs">
+      <DependentUpon>201812171125186_addTagsDeteleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
     <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
@@ -254,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812150544250_updatetest4.resx">
       <DependentUpon>201812150544250_updatetest4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812170833089_ocncho.resx">
+      <DependentUpon>201812170833089_ocncho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812171125186_addTagsDeteleted.resx">
+      <DependentUpon>201812171125186_addTagsDeteleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

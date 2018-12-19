@@ -29,14 +29,30 @@
 
             .speech img {
                 float: right;
-                width: 40px; 
+                width: 40px;
                 margin-top: 212px;
                 margin-right: -420px;
             }
     </style>
+    <script src="~/Assets/libs/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="459341644597299"
+         theme_color="#0084ff">
+    </div>
     <div class="header-area">
         @if (Request.IsAuthenticated)
         {
@@ -50,12 +66,12 @@
                                 <li><a href="/gio-hang.htm"><i class="fa fa-shopping-cart"></i> Giỏ hàng và Thanh toán</a></li>
                                 <li><a href="/xem-trang-thai-mat-hang.htm"><i class="fa fa-history"></i> Lịch sử mua hàng</a></li>
                                 @{Html.RenderAction("GetMyCoin", "Home");}
-                               
+
                                 @if (this.User.IsInRole("LiveLocation"))
                                 {
                                     <li><a href="/vi-tri-truc-tuyen.htm" class="btnLive text-blue"><i class="fa fa-map-signs"></i> Live</a></li>
                                 }
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -141,20 +157,20 @@
                 <div id="search">
                     <button type="button" class="close">×</button>
                     @*<form method="get" action="/search.htm">
-                        <input type="search" name="keyword" placeholder="nhập từ khóa ở đây" />
-                        <button type="submit" class="btn btn-primary" id="btnSearch">Search</button>
-                        <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+                            <input type="search" name="keyword" placeholder="nhập từ khóa ở đây" />
+                            <button type="submit" class="btn btn-primary" id="btnSearch">Search</button>
+                            <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
 
-                    </form>*@
-                     <div class="speech">
-                    <form id="labnol" method="get" action="/search.htm">
-                       
+                        </form>*@
+                    <div class="speech">
+                        <form id="labnol" method="get" action="/search.htm">
+
                             <input type="search" name="keyword" id="transcript" placeholder="Nhập Từ Khóa hoặc Nhấp Voice để tìm..." />
                             <button type="submit" class="btn btn-primary" id="btnSearch">Search</button>
                             <img onclick="startDictation()" src="~/Assets/Client/img/voice.gif" />
-                   
-                    </form>
-                         </div>
+
+                        </form>
+                    </div>
                 </div>
                 <script>
                     function startDictation() {
@@ -194,6 +210,7 @@
     @RenderSection("brand", required: false)
 
     @RenderSection("productStatistic", required: false)
+    <!-- Load Facebook SDK for JavaScript -->
 
     <div class="footer-top-area">
         <div class="zigzag-bottom"></div>
@@ -226,7 +243,7 @@
                         </div>
                     }
                 </div>
-                
+
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Danh mục</h2>
@@ -278,10 +295,18 @@
             <i class="fa fa-chevron-up" aria-hidden="true"></i>
         </div>
     </div>
-   
+
     @Scripts.Render("~/js/jquery")
+    <script src="~/Assets/Client/js/tagsort.min.js"></script>
+    <script>
+        $(document).ready(function ($s) {
+            // Inclusive = when multiple tags are selected, all elements that contain ANY of those tags will be shown
+            // Exclusive = when multiple tags are selected, only elements that contain ALL of those tags will be shown
+            $s('div.tags-container').tagSort({ selector: '.item', displaySelector: '.item-tags', displaySeperator: ' / ', exclusive: false, fadeTime: 200 });
+        });
+    </script>
     @Scripts.Render("~/js/core")
     @RenderSection("scripts", required: false)
-    
+
 </body>
 </html>

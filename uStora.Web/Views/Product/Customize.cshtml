@@ -1,8 +1,97 @@
-﻿
+﻿@model uStora.Web.Infrastructure.Core.PaginationSet<uStora.Web.Models.ProductViewModel>
 @{
+    var tagcategory = (IEnumerable<uStora.Web.Models.TagCategoryViewModel>)ViewBag.TagCategory;
     ViewBag.Title = "Customize";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>Customize</h2>
+    var tag = (IEnumerable<uStora.Common.ViewModels.TagbyTagCategoryViewModel>)ViewBag.Tag;
+
+}
+<!-- Demo Styles -->
+<style>
+
+
+    .item {
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 20%;
+        margin-bottom: 40px;
+        height: 360px;
+        max-height: 360px;
+        overflow: hidden;
+    }
+
+        .item .wrapper {
+            background-color: #f4f4f4;
+            padding: 8px;
+            height: 100%;
+        }
+
+            .item .wrapper img {
+                width: 100%;
+            }
+
+            .item .wrapper .item-tags {
+                color: #AAA;
+                font-size: 12px;
+                line-height: 1.8;
+            }
+
+    .tagsort-tags-container {
+        margin: 40px 0;
+    }
+</style>
+
+<link href="~/Assets/Client/css/tagsort.min.css" rel="stylesheet" />
+
+
+
+
+<div class="container">
+
+    <h1>Chọn lựa sản phẩm theo sở thích nhanh chóng</h1>
+
+    @foreach (var tc in tag)
+    {
+
+        <a>@tc.NameTagCategory :</a>
+        @*<div class="tags-container row">*@
+
+        <div class="tags-container row" >
+            <div id="demo" class="m">
+                <span>@tc.NameTag</span>
+            </div>
+        </div>
+        <script>
+            var elem = document.getElementById('demo');
+            elem.outerHTML = elem.textContent.replace(/\s{2,}/g,'').split(',').map(function (el) {
+                return '<span>'+el+'</span>';
+            }).join(' ');
+        </script>
+
+
+    }
+
+    @foreach (var product in Model.Items)
+    {
+
+        <div class="item col-md-3" data-item-id="1" data-item-tags="@product.Tags">
+
+            <div class="wrapper">
+
+                <img src="@product.Image" alt="@product.Name">
+
+                <h2>@product.Name</h2>
+                <p class="item-tags"></p>
+            </div>
+
+        </div>
+
+
+    }
+</div>
 
