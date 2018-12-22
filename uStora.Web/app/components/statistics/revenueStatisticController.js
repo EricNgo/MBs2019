@@ -11,7 +11,7 @@
         $scope.series = ['Doanh thu'];
         $scope.chartData = [];
         $scope.loading = true;
-        $scope.fromDate = '01/01/2015';
+        $scope.fromDate = '01/01/2017';
         $scope.toDate = '01/12/' + new Date().getFullYear();
 
         function getStatistic(page) {

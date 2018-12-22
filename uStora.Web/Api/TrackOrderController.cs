@@ -56,6 +56,25 @@ namespace uStora.Web.Api
             });
         }
 
+        [Route("getlonglatbyorderid/{id:int}")]
+        [HttpGet]
+        [AllowAnonymous]
+        public HttpResponseMessage GetLongLatByOrderId(HttpRequestMessage request,int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _trackOrderService.GetLongLatByOrderId(id);
+                var responseData = Mapper.Map<IEnumerable<TrackOrder>, IEnumerable<TrackOrderViewModel>>(model);
+                //foreach (var id in listDrivers)
+                //{
+                //    var user = _appUserService.GetUserById(id);
+                //    userVm.Add(Mapper.Map<ApplicationUser, ApplicationUserViewModel>(user));
+                //}
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+
         [Route("getorders")]
         [HttpGet]
         public HttpResponseMessage GetOrders(HttpRequestMessage request)
@@ -187,6 +206,36 @@ namespace uStora.Web.Api
                 return response;
             });
         }
+
+        [Route("updatepickup")]
+        [HttpPut]
+        [AllowAnonymous]
+        public HttpResponseMessage UpdatePickup(HttpRequestMessage request, TrackOrderViewModel TrackOrderVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var dbTrackOrder = _trackOrderService.FindById(TrackOrderVm.ID);
+                    dbTrackOrder.UpdateTrackOrder(TrackOrderVm);
+                    dbTrackOrder.CreatedDate  = DateTime.Now;
+
+                    _trackOrderService.Update(dbTrackOrder);
+                    _trackOrderService.SaveChanges();
+
+                    var responseData = Mapper.Map<TrackOrder, TrackOrderViewModel>(dbTrackOrder);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
+                }
+
+                return response;
+            });
+        }
+
 
         [Route("delete")]
         [HttpDelete]

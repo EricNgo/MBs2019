@@ -96,8 +96,9 @@ namespace uStora.Web.Api
             return request.CreateResponse(HttpStatusCode.OK, appGroupViewModel);
         }
 
-        [HttpPost]
+    
         [Route("add")]
+        [HttpPost]
         [Authorize(Roles = "AddUser, Admin")]
         public HttpResponseMessage Create(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
@@ -142,9 +143,11 @@ namespace uStora.Web.Api
             }
         }
 
-        [HttpPut]
+
         [Route("update")]
-        [Authorize(Roles = "UpdateUser, Admin")]
+        [HttpPut]
+        [AllowAnonymous]
+        [Authorize(Roles = "UpdateUser,Admin")]
         public async Task<HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
             if (ModelState.IsValid)

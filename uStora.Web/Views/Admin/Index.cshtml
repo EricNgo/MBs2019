@@ -33,11 +33,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- jQuery -->
+    <script src="~/Assets/libs/jquery/dist/jquery.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini" ng-app="uStora" ng-controller="rootController">
     <div ui-view></div>
-    <!-- jQuery -->
-    <script src="~/Assets/libs/jquery/dist/jquery.min.js"></script>
+
 
     <!-- SignalR -->
     <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
@@ -79,6 +80,7 @@
     <script src="/app/shared/filters/status.filter.js"></script>
     <script src="~/app/shared/filters/statusTrackOrderFilter.js"></script>
     <script src="~/app/shared/filters/statusOrderFilter.js"></script>
+    <script src="~/app/shared/filters/statuspickupTrackOrderFilter.js"></script>
     <script src="/app/shared/services/apiService.js"></script>
     <script src="/app/shared/directives/pagerDirective.js"></script>
     <script src="/app/shared/services/notificationService.js"></script>
@@ -146,6 +148,7 @@
     <script src="~/app/components/trackorders/trackorderAddController.js"></script>
     <script src="~/app/components/trackorders/trackorderEditController.js"></script>
     <script src="~/app/components/trackorders/trackorderListController.js"></script>
+    <script src="~/app/components/trackorders/trackorderPickupController.js"></script>
     <script src="~/app/components/feedbacks/feedbackListController.js"></script>
     <script src="~/app/components/feedbacks/feedbackDetailController.js"></script>
     <script src="~/app/components/orders/orderAddController.js"></script>
@@ -156,5 +159,6 @@
     <script src="~/app/components/manufactors/manufactorAddController.js"></script>
     <script src="~/app/components/manufactors/manufactorEditController.js"></script>
     <script src="~/app/components/manufactors/manufactorListController.js"></script>
+   
 </body>
 </html>

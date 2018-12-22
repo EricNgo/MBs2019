@@ -20,6 +20,10 @@ namespace uStora.Web.Models
 
         public string Latitude { get; set; }
 
+        public DateTime? CreatedDate { get; set; }
+
+        public bool StatusPickup { get; set; }
+
         public bool Status { get; set; }
 
         public bool isDone { get; set; }

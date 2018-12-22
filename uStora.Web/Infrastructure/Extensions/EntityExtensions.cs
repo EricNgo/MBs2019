@@ -191,6 +191,8 @@ namespace uStora.Web.Infrastructure.Extensions
             order.CustomerEmail = orderViewModel.CustomerEmail;
             order.CustomerAddress = orderViewModel.CustomerAddress;
             order.CustomerMobile = orderViewModel.CustomerMobile;
+            order.CustomerLat = orderViewModel.CustomerLat;
+            order.CustomerLong = orderViewModel.CustomerLong;
             order.PaymentMethod = orderViewModel.PaymentMethod;
             order.PaymentStatus = orderViewModel.PaymentStatus;
             order.CustomerMessage = orderViewModel.CustomerMessage;
@@ -273,6 +275,8 @@ namespace uStora.Web.Infrastructure.Extensions
             trackOrder.Latitude = trackOrderViewModel.Latitude;
             trackOrder.Status = trackOrderViewModel.Status;
             trackOrder.UserId = trackOrderViewModel.UserId;
+            trackOrder.CreatedDate = trackOrder.CreatedDate;
+            trackOrder.StatusPickup = trackOrder.StatusPickup;
         }
         
     }

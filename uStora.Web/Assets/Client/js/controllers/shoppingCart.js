@@ -174,6 +174,8 @@ var cart = {
         $('#email').val('');
         $('#phone').val('');
         $('#address').val('');
+        $('#lat').val('');
+        $('#long').val('');
         $('#message').val('');
     },
     getTotalOrder: function () {
@@ -212,6 +214,9 @@ var cart = {
             CustomerName: $('#fullname').val(),
             CustomerEmail: $('#email').val(),
             CustomerAddress: $('#address').val(),
+            CustomerLat: $('#lat').val(),
+            CustomerLong: $('#long').val(),
+
             CustomerMobile: $('#phone').val(),
             PaymentMethod: $('select[name="paymentMethod"] option:selected').val(),
             BankCode: $('input[groupname="bankcode"]:checked').prop('id'),

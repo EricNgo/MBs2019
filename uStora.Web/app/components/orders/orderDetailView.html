@@ -42,6 +42,10 @@
                                 <dt>Địa chỉ</dt>
                                 <dd>{{ order.CustomerAddress }}</dd>
                                 <br />
+                                <dt>Tọa độ của khách hàng</dt>
+                                <dd>{{ order.CustomerLat }},{{order.CustomerLong}}</dd>
+                                <br />
+                             
                                 <dt>Điện thoại</dt>
                                 <dd>{{ order.CustomerMobile }}</dd>
                                 <br />
@@ -96,6 +100,8 @@
                                             <td>{{ od.Product.Price | currency: "đ " : 0 }}</td>
                                             <td>{{ od.Product.Price * od.Quantity | currency: "đ " : 0 }}</td>                                          
                                         </tr>
+                           
+                                  
                                         <tr>
                                             <td></td>
                                             <td></td>
@@ -106,6 +112,9 @@
                                 </table>
                             </div>
                         </div>
+                        <!--<dt>Tọa độ giao hàng</dt>
+                        <dd>{{ trackorder.Longitude }},{{trackorder.Latitude}}</dd>
+                        <br />-->
                     </div>
                 </div>
             </div>

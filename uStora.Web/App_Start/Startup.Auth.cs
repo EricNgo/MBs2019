@@ -103,7 +103,7 @@ namespace uStora.Web.App_Start
                 {
                     var appGroupService = ServiceFactory.Get<IApplicationGroupService>();
                     var groups = appGroupService.GetListGroupByUserId(user.Id).ToList();
-                    if (groups.Count(x => x.Name == "Admin") > 0)
+                    if (groups.Count(x => x.Name == "Admin" || x.Name == "Tài xế" || x.Name == "Người quản lí") > 0)
                     {
                         ClaimsIdentity identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ExternalBearer);
                         context.Validated(identity);

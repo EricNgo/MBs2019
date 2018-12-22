@@ -152,6 +152,14 @@
     <Compile Include="Migrations\201812171125186_addTagsDeteleted.Designer.cs">
       <DependentUpon>201812171125186_addTagsDeteleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812210347365_addToaDoKHang.cs" />
+    <Compile Include="Migrations\201812210347365_addToaDoKHang.Designer.cs">
+      <DependentUpon>201812210347365_addToaDoKHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812220339391_addTrackorderAttributes.cs" />
+    <Compile Include="Migrations\201812220339391_addTrackorderAttributes.Designer.cs">
+      <DependentUpon>201812220339391_addTrackorderAttributes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
     <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
@@ -268,6 +276,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812171125186_addTagsDeteleted.resx">
       <DependentUpon>201812171125186_addTagsDeteleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812210347365_addToaDoKHang.resx">
+      <DependentUpon>201812210347365_addToaDoKHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812220339391_addTrackorderAttributes.resx">
+      <DependentUpon>201812220339391_addTrackorderAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -431,7 +431,9 @@
     <Content Include="app\components\stock\stockListController.js" />
     <Content Include="app\components\stock\stockListView.html" />
     <Content Include="app\components\trackorders\trackorder.module.js" />
+    <Content Include="app\components\trackorders\trackorderPickupController.js" />
     <Content Include="app\components\trackorders\trackorderAddController.js" />
+    <Content Include="app\components\trackorders\trackorderPickupView.html" />
     <Content Include="app\components\trackorders\trackorderAddView.html" />
     <Content Include="app\components\trackorders\trackorderEditController.js" />
     <Content Include="app\components\trackorders\trackorderEView.html" />
@@ -448,6 +450,7 @@
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\status.filter.js" />
     <Content Include="app\shared\filters\statusOrderFilter.js" />
+    <Content Include="app\shared\filters\statuspickupTrackOrderFilter.js" />
     <Content Include="app\shared\filters\statusTrackOrderFilter.js" />
     <Content Include="app\shared\modules\uStora.common.js" />
     <Content Include="app\shared\services\apiService.js" />

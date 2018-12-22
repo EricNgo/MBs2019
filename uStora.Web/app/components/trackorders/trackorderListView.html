@@ -32,6 +32,7 @@
                 </div><!-- /.col-lg-6 -->
                 <div class="col-lg-6">
                     <button class="btn btn-primary" ui-sref="add_trackorder">Vào phân công</button>
+          
                     <button class="btn btn-danger" id="btnDelete" disabled ng-click="deleteTrackOrderMulti()">Xóa dòng đã chọn</button>
                 </div>
             </div>
@@ -46,12 +47,14 @@
                                     Chọn tất cả
                                 </label>
                             </th>
-                            <th style="width: 5%">ID</th>
-                            <th style="width: 15%">Xe</th>
-                            <th style="width: 17%">Chủ đơn hàng</th>
-                            <th style="width: 13%">Tài khoản đăng nhập</th>
+                            <th style="width: 2%">ID</th>
+                            <th style="width: 10%">Xe</th>
+                            <th style="width: 10%">Chủ đơn hàng</th>
+                            <th style="width: 8%">Tài khoản đăng nhập</th>
                             <th style="width: 20%">Tài xế</th>
                             <th style="width: 10%">Trạng thái</th>
+                            <th style="width: 10%">Ngày lấy</th>
+                            <th style="width: 10%">Trạng thái lấy hàng</th>
                             <th style="width: 10%">Thao tác</th>
                         </tr>
                         <tr ng-repeat="item in trackOrders">
@@ -70,8 +73,20 @@
                                 </span>
                             </td>
                             <td>
+                                {{item.CreatedDate}}
+                            </td>
+                            <td>
+                                <span ng-class="{'badge bg-green':item.StatusPickup==true,'badge bg-red':item.StatusPickup==false}">
+                                    {{item.StatusPickup | statuspickupTrackOrderFilter}}
+                                </span>
+                            </td>
+                            <td>
                                 <button class="btn btn-sm btn-primary cus-title" ui-sref="edit_trackorder({id:item.ID})">
                                     <i class="fa fa-pencil" data-toggle="tooltip" title="Chỉnh sửa">
+                                    </i>
+                                </button>
+                                <button class="btn btn-sm btn-primary cus-title" ui-sref="pickup_trackorder({id:item.ID})">
+                                    <i class="glyphicon glyphicon-log-out" data-toggle="tooltip" title="Lấy Hàng">
                                     </i>
                                 </button>
                                 <button class="btn btn-sm btn-warning cus-title" ng-click="deleteTrackOrder(item.ID)">

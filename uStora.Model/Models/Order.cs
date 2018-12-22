@@ -20,6 +20,10 @@ namespace uStora.Model.Models
         [MaxLength(250)]
         public string CustomerAddress { get; set; }
 
+        public string CustomerLat { get; set; }
+
+        public string CustomerLong { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string CustomerEmail { get; set; }

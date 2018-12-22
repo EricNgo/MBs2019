@@ -15,6 +15,11 @@
                 parent: 'base',
                 templateUrl: "/app/components/trackorders/trackorderAddView.html",
                 controller: "trackOrderAddController"
+            }).state('pickup_trackorder', {
+                url: "/pickup_trackorder/:id",
+                parent: 'base',
+                templateUrl: "/app/components/trackorders/trackorderPickupView.html",
+                controller: "trackOrderPickupController"
             }).state('edit_trackorder', {
                 url: "/edit_trackorder/:id",
                 parent: 'base',

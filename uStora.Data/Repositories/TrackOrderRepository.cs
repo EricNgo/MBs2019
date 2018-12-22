@@ -11,6 +11,8 @@ namespace uStora.Data.Repositories
     public interface ITrackOrderRepository : IRepository<TrackOrder>
     {
         IEnumerable<TrackOrder> GetLocation(string cusId);
+
+        IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId);
     }
 
     public class TrackOrderRepository : RepositoryBase<TrackOrder>, ITrackOrderRepository
@@ -28,6 +30,17 @@ namespace uStora.Data.Repositories
                         && (od.PaymentStatus == 1 || od.PaymentStatus == 0)
                         select tod;
             query = query.Distinct(x => x.UserId).AsQueryable();
+            return query;
+        }
+        public IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId)
+        {
+            var query = from od in DbContext.TrackOrders
+                  
+    
+                        where od.OrderId == orderId && od.Status == false
+            
+                        select od;
+
             return query;
         }
     }

@@ -14,6 +14,8 @@ namespace uStora.Service
     {
         IEnumerable<TrackOrder> GetByUserId(string userId);
 
+        IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId);
+
         IEnumerable<TrackOrder> GetLocation(string cusId);
     }
     public class TrackOrderService : ITrackOrderService
@@ -69,6 +71,11 @@ namespace uStora.Service
         public IEnumerable<TrackOrder> GetByUserId(string userId)
         {
             return _trackOrderRepository.GetMulti(x => x.UserId == userId && x.Status == true);
+        }
+
+        public IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId)
+        {
+            return _trackOrderRepository.GetLongLatByOrderId(orderId);
         }
 
         public IEnumerable<TrackOrder> GetLocation(string cusId)
