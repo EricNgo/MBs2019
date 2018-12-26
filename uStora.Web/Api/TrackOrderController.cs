@@ -224,7 +224,7 @@ namespace uStora.Web.Api
                     var dbTrackOrder = _trackOrderService.FindById(TrackOrderVm.ID);
                     dbTrackOrder.UpdateTrackOrder(TrackOrderVm);
                     dbTrackOrder.CreatedDate  = DateTime.Now;
-
+                    dbTrackOrder.StatusPickup = true;
                     _trackOrderService.Update(dbTrackOrder);
                     _trackOrderService.SaveChanges();
 

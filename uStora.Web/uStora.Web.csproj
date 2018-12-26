@@ -5847,6 +5847,8 @@
     <Content Include="Views\Product\_ManufactorList.cshtml" />
     <Content Include="UploadedFiles\files\bike1\Thumbs.db" />
     <Content Include="Views\Product\Customize.cshtml" />
+    <Content Include="Views\Live\ListCustomerOrder.cshtml" />
+    <Content Include="Views\Live\LiveOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\shared\footer\" />

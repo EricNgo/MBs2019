@@ -13,6 +13,7 @@ namespace uStora.Service
     public interface ITrackOrderService : ICrudService<TrackOrder>, IGetDataService<TrackOrder>
     {
         IEnumerable<TrackOrder> GetByUserId(string userId);
+        IEnumerable<TrackOrder> GetByUserIdPaging(string userId, string keyword, int page, int pageSize, out int totalRow);
 
         IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId);
 
@@ -50,11 +51,11 @@ namespace uStora.Service
             {
                 if (string.IsNullOrEmpty(keyword))
                 {
-                    return _trackOrderRepository.GetAll(new string[] { "Order", "ApplicationUser", "Vehicle" }).OrderByDescending(x => x.Status);
+                    return _trackOrderRepository.GetMulti(x=>x.Status == true,new string[] { "Order", "ApplicationUser", "Vehicle" }).OrderByDescending(x => x.Status);
                 }
                 else
-                    return _trackOrderRepository.GetMulti(x => x.Order.CustomerName.Contains(keyword)
-                    || x.Vehicle.DriverName.Contains(keyword) || x.Order.CreatedDate.ToString().Contains(keyword),
+                    return _trackOrderRepository.GetMulti(x => x.Status == true && x.Order.CustomerName.Contains(keyword)
+                    || x.Order.CreatedDate.ToString().Contains(keyword),
                     new string[] { "Order", "ApplicationUser", "Vehicle" }).OrderByDescending(x => x.Status);
             }
             catch
@@ -68,9 +69,31 @@ namespace uStora.Service
             return _trackOrderRepository.GetSingleById(id);
         }
 
+        //public IEnumerable<TrackOrder> GetByUserId(string userId)
+        //{
+        //    return _trackOrderRepository.GetMulti(x => x.UserId == userId && x.Status == true);
+        //}
         public IEnumerable<TrackOrder> GetByUserId(string userId)
         {
             return _trackOrderRepository.GetMulti(x => x.UserId == userId && x.Status == true);
+        }
+
+        public IEnumerable<TrackOrder> GetByUserIdPaging(string userId,string keyword, int page, int pageSize, out int totalRow)
+        {
+            //return _trackOrderRepository.GetMulti(x => x.UserId == userId && x.Status == true);
+
+            var query = _trackOrderRepository.GetMulti(x => x.UserId == userId && x.Status == true);
+            if (string.IsNullOrEmpty(keyword))
+            {
+                totalRow = query.Count();
+                return query.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
+            }
+            else
+            {
+                query = _trackOrderRepository.GetMulti(x => x.Order.CustomerName.Contains(keyword) || x.Order.CustomerMobile.Contains(keyword), new string[] { "Order" });
+                totalRow = query.Count();
+                return query.OrderByDescending(x => x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
+            }
         }
 
         public IEnumerable<TrackOrder> GetLongLatByOrderId(int orderId)

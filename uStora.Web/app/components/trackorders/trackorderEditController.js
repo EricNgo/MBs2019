@@ -22,14 +22,14 @@
                    notificationService.displayError("Không có đơn hàng nào được tìm thấy.");
                })
         }
-        function loadVehicles() {
-            apiService.get('/api/trackorder/getvehicles', null,
-               function (result) {
-                   $scope.vehicles = result.data;
-               }, function () {
-                   notificationService.displayError("Không có xe nào được tìm thấy.");
-               })
-        }
+        //function loadVehicles() {
+        //    apiService.get('/api/trackorder/getvehicles', null,
+        //       function (result) {
+        //           $scope.vehicles = result.data;
+        //       }, function () {
+        //           notificationService.displayError("Không có xe nào được tìm thấy.");
+        //       })
+        //}
         function loadUsers() {
             apiService.get('/api/trackorder/getdriver', null,
                function (result) {
@@ -57,7 +57,7 @@
                 });
         }
         loadOrders();
-        loadVehicles();
+        //loadVehicles();
         loadUsers();
         loadTrackOrderDetail();
     }

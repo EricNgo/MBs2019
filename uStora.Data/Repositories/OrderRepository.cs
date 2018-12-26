@@ -10,6 +10,7 @@ namespace uStora.Data.Repositories
     public interface IOrderRepository : IRepository<Order>
     {
         IEnumerable<RevenueStatisticViewModel> GetRevenueStatistic(string fromDate, string toDate);
+        IEnumerable<RevenueStatisticViewModel> GetRevenueStatisticByQuaterly(string fromDate, string toDate);
         IEnumerable<OrderClientViewModel> GetListOrder(string userId);
     }
 
@@ -34,6 +35,16 @@ namespace uStora.Data.Repositories
                 new SqlParameter("@toDate", toDate)
             };
             return DbContext.Database.SqlQuery<RevenueStatisticViewModel>("GetRevenuesStatistic  @fromDate,@toDate", parameters);
+        }
+
+        public IEnumerable<RevenueStatisticViewModel> GetRevenueStatisticByQuaterly(string fromDate, string toDate)
+        {
+            var parameters = new SqlParameter[]
+            {
+                new SqlParameter("@fromDate", fromDate),
+                new SqlParameter("@toDate", toDate)
+            };
+            return DbContext.Database.SqlQuery<RevenueStatisticViewModel>("GetRevenuesStatisticByQuaterly  @fromDate,@toDate", parameters);
         }
     }
 }

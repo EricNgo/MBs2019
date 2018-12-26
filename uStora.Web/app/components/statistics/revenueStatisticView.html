@@ -22,14 +22,28 @@
             <div class="nav-tabs-custom">
                 <!-- Tabs within a box -->
                 <ul class="nav nav-tabs pull-right">
-                    <li class="active">
-                        <a href="javascripts:void();" data-toggle="tab">Biểu đồ thống kê</a>
-                    </li>
+                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Doanh thu theo ngày</a></li>
+
+                    <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
                 </ul>
                 <div class="tab-content no-padding" id="revenue-chart">
                     <!-- Morris chart - Sales -->
                     <canvas id="bar" class="chart chart-line"
                             chart-data="chartData" chart-labels="labels"
+                            chart-series="series"></canvas>
+                </div>
+            </div><!-- /.nav-tabs-custom -->
+            <div class="nav-tabs-custom">
+                <!-- Tabs within a box -->
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Doanh thu theo quý</a></li>
+
+                    <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+                </ul>
+                <div class="tab-content no-padding" id="revenue-chart">
+                    <!-- Morris chart - Sales -->
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="chartdata2" chart-labels="labels2"
                             chart-series="series"></canvas>
                 </div>
             </div><!-- /.nav-tabs-custom -->

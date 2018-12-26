@@ -12,7 +12,7 @@ namespace uStora.Service
     public interface IProductService : ICrudService<Product>, IGetDataService<Product>
     {
         #region Methods
-
+        IEnumerable<Product> GetPromotionProducts();
         IEnumerable<TagbyTagCategoryViewModel> GetTagsByTagCategories();
         IEnumerable<Product> GetLastest(int top);
 
@@ -381,6 +381,11 @@ namespace uStora.Service
         public IEnumerable<TagbyTagCategoryViewModel> GetTagsByTagCategories()
         {
             return _tagRepository.GetTagsByTagCategories();
+        }
+
+        public IEnumerable<Product> GetPromotionProducts()
+        {
+            return _productRepository.GetPromotionProduct();
         }
 
         public IEnumerable<Product> GetTopView(int top)

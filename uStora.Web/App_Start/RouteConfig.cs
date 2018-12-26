@@ -199,6 +199,18 @@ namespace uStora.Web
                 defaults: new { controller = "Product", action = "Customize", id = UrlParameter.Optional },
                 namespaces: new string[] { "uStora.Web.Controllers" }
             );
+            routes.MapRoute(
+     name: "Track order By User",
+     url: "track-order.htm",
+     defaults: new { controller = "Live", action = "ListCustomerOrder", id = UrlParameter.Optional },
+     namespaces: new string[] { "uStora.Web.Controllers" }
+ );
+            routes.MapRoute(
+name: "Live Order",
+url: "order/{orderid}.htm",
+defaults: new { controller = "Live", action = "LiveOrder", id = UrlParameter.Optional },
+namespaces: new string[] { "uStora.Web.Controllers" }
+);
 
             routes.MapRoute(
                 name: "Default",

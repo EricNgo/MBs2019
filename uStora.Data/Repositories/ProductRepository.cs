@@ -10,7 +10,8 @@ namespace uStora.Data.Repositories
     {
         IEnumerable<Product> GetProductsByTag(string tagId, int brandId);
 
-        //IEnumerable<Product> GetProductsByAllTagsSortTagCategories();
+        IEnumerable<Product> GetPromotionProduct();
+
     }
 
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
@@ -19,15 +20,6 @@ namespace uStora.Data.Repositories
             : base(dbFactory)
         {
         }
-
-        //public IEnumerable<Product> GetProductsByAllTagsSortTagCategories()
-        //{
-        //    //var query = new SqlParameter[]{
-        //    //    new SqlParameter("@_tags",_tags)
-        //    //};
-        //    //totalRow = query.Count();
-        //    return DbContext.Database.SqlQuery<AllTagsViewModel>("whereistag @_tags");
-        //}
 
         public IEnumerable<Product> GetProductsByTag(string tagId, int brandId)
         {
@@ -48,6 +40,11 @@ namespace uStora.Data.Repositories
             }
 
             return query;
+        }
+
+        public IEnumerable<Product> GetPromotionProduct()
+        {
+            return DbContext.Database.SqlQuery<Product>("GetPromotionProduct");
         }
     }
 }

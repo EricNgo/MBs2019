@@ -8,14 +8,20 @@
         $scope.feedbacksCount = 0;
         $scope.ordersCount = 0;
         $scope.usersCount = 0;
-        $scope.users = [];
+        //$scope.users = [];
         $scope.products = [];
-        $scope.latestUsers = latestUsers;
+        $scope.promotionproducts = [];
+        //$scope.latestUsers = latestUsers;
         $scope.latestProducts = latestProducts;
        
-        function latestUsers() {
-            apiService.get('/api/home/getlatestusers', null, function (res) {
-                $scope.users = res.data;
+        //function latestUsers() {
+        //    apiService.get('/api/home/getlatestusers', null, function (res) {
+        //        $scope.users = res.data;
+        //    });
+        //}
+        function promotionProduct() {
+            apiService.get('/api/home/getpromotionproducts', null, function (res) {
+                $scope.promotionproducts = res.data;
             });
         }
         function latestProducts() {
@@ -37,7 +43,8 @@
 
             });
         }
-        latestUsers();
+        //latestUsers();
+        promotionProduct();
         getItemCount();
         latestProducts();
     }

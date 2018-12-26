@@ -74,31 +74,35 @@
             <!-- USERS LIST -->
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Thành viên mới</h3>
+                    <h3 class="box-title">Sản phẩm  với giá khuyến mãi</h3>
                     <div class="box-tools pull-right">
-                        <span class="label label-danger">Top 8 thành viên mới</span>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove">
-                            <i class="fa fa-times"></i>
-                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
-                    <ul class="users-list clearfix">
-                        <li ng-repeat="user in users">
-                            <img ng-src="{{user.Image}}" width="70" height="70" alt="User Image">
-                            <a class="users-list-name" href="#">{{user.FullName}}</a>
-                            <span class="users-list-date">{{user.CreatedDate | date:'dd/MM/yyyy hh:mm:ss'}}</span>
+                    <ul class="products-list product-list-in-box">
+                        <li class="item" ng-repeat="p in promotionproducts">
+                            <div class="product-img">
+                                <img ng-src="{{p.Image}}" alt="Product Image">
+                            </div>
+                            <div class="product-info">
+                                <a href="javascript:void(0)" class="product-title">
+                                    {{p.Name}} 
+                                    <span class="label label-warning pull-right">{{p.PromotionPrice | currency:"đ ":0}}</span>
+                                </a>
+                                <span class="product-description" > {{p.Price}} vnd</span>
+                            </div>
                         </li>
                     </ul>
                     <!-- /.users-list -->
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                    <a ui-sref="application_users" class="uppercase">Xem tất cả thành viên</a>
+                    <a ui-sref="products" class="uppercase">Xem sản phẩm được khuyến mãi</a>
                 </div>
                 <!-- /.box-footer -->
             </div>

@@ -7,7 +7,7 @@
         $scope.order = {};
 
         $scope.loading = true;
-
+        //$scope.loadTrackOrderDetail = loadTrackOrderDetail;
         $scope.getOrder = getOrder;
         $scope.exportProductToXsls = exportProductToXsls;
         $scope.total = 0;
@@ -23,6 +23,13 @@
                     notificationService.displayError('Load dữ liệu không thành công');
                 });
         }
+        //function loadTrackOrderDetail() {
+        //    apiService.get('/api/trackorder/getbyid/' + $stateParams.id, null, function (result) {
+        //        $scope.trackorder = result.data;
+        //    }, function (error) {
+        //        notificationService.displayError(error.data);
+        //    });
+        //}
 
         function exportProductToXsls() {
             $scope.loading = true;
@@ -39,5 +46,6 @@
         }
 
         getOrder();
+        //loadTrackOrderDetail()
     }
 })(angular.module('uStora.orders'));

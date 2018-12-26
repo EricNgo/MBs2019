@@ -15,8 +15,6 @@ namespace uStora.Data
         {
             //this.Configuration.LazyLoadingEnabled = false;
             //base.Configuration.ProxyCreationEnabled = false;
-
-   
         }
         public DbSet<ApplicationGroup> ApplicationGroups { get; set; }
         public DbSet<ApplicationRole> ApplicationRoles { get; set; }

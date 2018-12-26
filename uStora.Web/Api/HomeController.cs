@@ -35,7 +35,7 @@ namespace uStora.Web.API
         [Route("TestMethod")]
         public string TestMethod()
         {
-            return "Xin chào thành viên uStora";
+            return "Xin chào thành viên TTGShop";
         }
 
         [HttpGet]
@@ -81,6 +81,21 @@ namespace uStora.Web.API
             {
                 HttpResponseMessage response = null;
                 var products = _productService.GetAll().OrderByDescending(x => x.CreatedDate).Take(5);
+                response = request.CreateResponse(HttpStatusCode.OK, products);
+                return response;
+            });
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("getpromotionproducts")]
+        public HttpResponseMessage GetPromotionProducts(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                var products = _productService.GetAll().OrderByDescending(x => x.PromotionPrice).Take(5);
                 response = request.CreateResponse(HttpStatusCode.OK, products);
                 return response;
             });

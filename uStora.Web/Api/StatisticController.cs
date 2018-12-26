@@ -22,6 +22,7 @@ namespace uStora.Web.Api
         }
 
         [Route("getrevenue")]
+    
         [Authorize(Roles = "ViewUser")]
         public HttpResponseMessage GetRevenue(HttpRequestMessage request, string fromDate, string toDate, int page, int pageSize)
         {
@@ -42,25 +43,19 @@ namespace uStora.Web.Api
             });
         }
 
-        //[Route("getrevenuebyquaterly")]
+        [Route("getrevenuebyquaterly")]
+        [AllowAnonymous]
         //[Authorize(Roles = "ViewUser")]
-        //public HttpResponseMessage GetRevenueByQuaterly(HttpRequestMessage request, string fromDate, string toDate, int page, int pageSize)
-        //{
-        //    return CreateHttpResponse(request, () =>
-        //    {
-        //        var model = _statisticService.GetRevenueStatisticByQuaterly(fromDate, toDate);
-        //        int totalRow = model.Count();
-        //        var revenueList = model.OrderByDescending(x => x.Date).Skip(page * pageSize).Take(pageSize);
-        //        var pagination = new PaginationSet<RevenueStatisticByQuaterlyViewModel>()
-        //        {
-        //            Items = revenueList,
-        //            Page = page,
-        //            TotalCount = totalRow,
-        //            TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
-        //        };
-        //        HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, pagination);
-        //        return response;
-        //    });
-        //}
+        public HttpResponseMessage GetRevenueByQuaterly(HttpRequestMessage request, string fromDate, string toDate)
+        {
+
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _statisticService.GetRevenueStatisticByQuaterly(fromDate, toDate);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, model);
+                return response;
+            });
+
+        }
     }
 }
