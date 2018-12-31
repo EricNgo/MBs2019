@@ -12,7 +12,7 @@ namespace uStora.Web.Models
 
         public int OrderId { get; set; }
 
-        public int VehicleId { get; set; }
+
         
         public string UserId { get; set; }
 
@@ -32,6 +32,6 @@ namespace uStora.Web.Models
         
         public virtual OrderViewModel Order { get; set; }
         
-        public virtual VehicleViewModel Vehicle { get; set; }
+
     }
 }

@@ -13,7 +13,7 @@ namespace uStora.Model.Models
 
         public int OrderId { get; set; }
 
-        public int VehicleId { get; set; }
+        //public int VehicleId { get; set; }
 
         [MaxLength(128)]
         public string UserId { get; set; }
@@ -34,7 +34,7 @@ namespace uStora.Model.Models
         [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }
 
-        [ForeignKey("VehicleId")]
-        public virtual Vehicle Vehicle { get; set; }
+        //[ForeignKey("VehicleId")]
+        //public virtual Vehicle Vehicle { get; set; }
     }
 }

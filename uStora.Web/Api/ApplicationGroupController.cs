@@ -146,8 +146,8 @@ namespace uStora.Web.Api
 
         [Route("update")]
         [HttpPut]
-        [AllowAnonymous]
-        [Authorize(Roles = "UpdateUser,Admin")]
+  
+        [Authorize(Roles = "UpdateUser")]
         public async Task<HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
         {
             if (ModelState.IsValid)
@@ -157,6 +157,7 @@ namespace uStora.Web.Api
                 {
                     appGroup.UpdateApplicationGroup(appGroupViewModel);
                     _appGroupService.Update(appGroup);
+                    //_appGroupService.Save();
 
                     //save group
                     var listRoleGroup = new List<ApplicationRoleGroup>();
@@ -196,6 +197,55 @@ namespace uStora.Web.Api
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
+
+        //public async Task<HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel appGroupViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var appGroup = _appGroupService.GetDetail(appGroupViewModel.ID);
+        //        try
+        //        {
+        //            appGroup.UpdateApplicationGroup(appGroupViewModel);
+        //            _appGroupService.Update(appGroup);
+
+        //            //save group
+        //            var listRoleGroup = new List<ApplicationRoleGroup>();
+        //            foreach (var role in appGroupViewModel.Roles)
+        //            {
+        //                listRoleGroup.Add(new ApplicationRoleGroup()
+        //                {
+        //                    GroupId = appGroup.ID,
+        //                    RoleId = role.Id
+        //                });
+        //            }
+        //            _appRoleService.AddRolesToGroup(listRoleGroup, appGroup.ID);
+        //            _appRoleService.Save();
+
+        //            //add role to user
+        //            var listRole = _appRoleService.GetListRoleByGroupId(appGroup.ID);
+        //            var listUserInGroup = _appGroupService.GetListUserByGroupId(appGroup.ID);
+        //            foreach (var user in listUserInGroup)
+        //            {
+        //                var listRoleName = listRole.Select(x => x.Name).ToArray();
+        //                foreach (var roleName in listRoleName)
+        //                {
+        //                    await _userManager.RemoveFromRoleAsync(user.Id, roleName);
+        //                    await _userManager.AddToRoleAsync(user.Id, roleName);
+        //                }
+        //            }
+        //            return request.CreateResponse(HttpStatusCode.OK, appGroupViewModel);
+        //        }
+        //        catch (NameDuplicatedException dex)
+        //        {
+        //            return request.CreateErrorResponse(HttpStatusCode.BadRequest, dex.Message);
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+        //    }
+        //}
 
         [HttpDelete]
         [Route("delete")]

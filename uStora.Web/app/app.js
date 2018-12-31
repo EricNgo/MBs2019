@@ -10,7 +10,6 @@
             'uStora.application_roles',
             'uStora.application_users',
             'uStora.statistics',
-            'uStora.vehicles',
             'uStora.trackorders',
             'uStora.feedbacks',
             'uStora.orders',

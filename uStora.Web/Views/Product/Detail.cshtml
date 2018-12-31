@@ -20,7 +20,7 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
 
                 @using (Ajax.BeginForm("Detail", "Product",
             new AjaxOptions { UpdateTargetId = "grid-list", HttpMethod = "get", LoadingElementId = "loading", OnBegin = "beginPaging", OnSuccess = "successPaging", OnFailure = "failurePaging" },
@@ -37,7 +37,7 @@
                 }
 
 
-                <div class="single-sidebar">
+                @*<div class="single-sidebar">
                     <h2 class="sidebar-title">Recent Posts</h2>
                     <ul>
                         <li><a href="">Sony Smart TV - 2015</a></li>
@@ -46,10 +46,10 @@
                         <li><a href="">Sony Smart TV - 2015</a></li>
                         <li><a href="">Sony Smart TV - 2015</a></li>
                     </ul>
-                </div>
+                </div>*@
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="product-content-right">
                     <ol class="breadcrumb">
                         <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
@@ -121,7 +121,7 @@
                                         Danh mục:
                                         <a href="/category/@(category.Alias)-@(category.ID).htm">@category.Name</a>.
 
-                                        @if (tags.Count() > 0)
+                                        @*@if (tags.Count() > 0)
                                         {
                                             <span>Tags:</span>
                                             foreach (var tag in tags)
@@ -141,7 +141,7 @@
                                         {
                                             <span>Tags:</span>
                                             <a href="javascripts:void();" class="text-center text-danger no-underline">Không có thẻ gán cho sản phẩm này.</a>
-                                        }
+                                        }*@
                                     </p>
                                 </div>
 

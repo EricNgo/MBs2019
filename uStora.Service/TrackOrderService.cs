@@ -42,7 +42,7 @@ namespace uStora.Service
 
         public IEnumerable<TrackOrder> GetAll()
         {
-            return _trackOrderRepository.GetAll(new string[] { "Order", "ApplicationUser", "Vehicle" });
+            return _trackOrderRepository.GetAll(new string[] { "Order", "ApplicationUser"});
         }
 
         public IEnumerable<TrackOrder> GetAll(string keyword)
@@ -51,12 +51,12 @@ namespace uStora.Service
             {
                 if (string.IsNullOrEmpty(keyword))
                 {
-                    return _trackOrderRepository.GetMulti(x=>x.Status == true,new string[] { "Order", "ApplicationUser", "Vehicle" }).OrderByDescending(x => x.Status);
+                    return _trackOrderRepository.GetMulti(x=>x.Status == true,new string[] { "Order", "ApplicationUser" }).OrderByDescending(x => x.Status);
                 }
                 else
                     return _trackOrderRepository.GetMulti(x => x.Status == true && x.Order.CustomerName.Contains(keyword)
                     || x.Order.CreatedDate.ToString().Contains(keyword),
-                    new string[] { "Order", "ApplicationUser", "Vehicle" }).OrderByDescending(x => x.Status);
+                    new string[] { "Order", "ApplicationUser"}).OrderByDescending(x => x.Status);
             }
             catch
             {

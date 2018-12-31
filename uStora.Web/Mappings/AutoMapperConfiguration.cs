@@ -30,7 +30,7 @@ namespace uStora.Web.Mappings
                 x.CreateMap<Feedback, FeedbackViewModel>();
                 x.CreateMap<Footer, FooterViewModel>();
                 x.CreateMap<Page, PageViewModel>();
-                x.CreateMap<Vehicle, VehicleViewModel>();
+   
                 x.CreateMap<Wishlist, WishlistViewModel>();
                 x.CreateMap<TrackOrder, TrackOrderViewModel>();
                 x.CreateMap<ApplicationGroup, ApplicationGroupViewModel>();

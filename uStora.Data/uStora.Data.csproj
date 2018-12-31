@@ -160,6 +160,14 @@
     <Compile Include="Migrations\201812220339391_addTrackorderAttributes.Designer.cs">
       <DependentUpon>201812220339391_addTrackorderAttributes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812301411291_dropvicichlesid.cs" />
+    <Compile Include="Migrations\201812301411291_dropvicichlesid.Designer.cs">
+      <DependentUpon>201812301411291_dropvicichlesid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812301438053_test2018.cs" />
+    <Compile Include="Migrations\201812301438053_test2018.Designer.cs">
+      <DependentUpon>201812301438053_test2018.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
     <Compile Include="Repositories\ApplicationRoleGroupRepository.cs" />
@@ -190,7 +198,6 @@
     <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Repositories\TrackOrderRepository.cs" />
     <Compile Include="Repositories\TransactionHistoryRepository.cs" />
-    <Compile Include="Repositories\VehicleRepository.cs" />
     <Compile Include="Repositories\VisitorStatisticRepository.cs" />
     <Compile Include="Repositories\WishlistRepository.cs" />
     <Compile Include="uStoraDbContext.cs" />
@@ -282,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812220339391_addTrackorderAttributes.resx">
       <DependentUpon>201812220339391_addTrackorderAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812301411291_dropvicichlesid.resx">
+      <DependentUpon>201812301411291_dropvicichlesid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812301438053_test2018.resx">
+      <DependentUpon>201812301438053_test2018.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

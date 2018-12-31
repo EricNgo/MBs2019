@@ -90,8 +90,8 @@ namespace uStora.Web.API
 
         [Route("listbrands")]
         [HttpGet]
-        [AllowAnonymous]
-        //[Authorize(Roles = "ViewUser")]
+        //[AllowAnonymous]
+        [Authorize(Roles = "ViewUser")]
         public HttpResponseMessage ListBrands(HttpRequestMessage request)
         {
             Func<HttpResponseMessage> func = () =>
@@ -110,8 +110,8 @@ namespace uStora.Web.API
 
         [Route("listtags")]
         [HttpGet]
-        //[Authorize(Roles = "ViewUser")]
-        [AllowAnonymous]
+        [Authorize(Roles = "ViewUser")]
+        //[AllowAnonymous]
         public HttpResponseMessage ListTags(HttpRequestMessage request)
         {
             Func<HttpResponseMessage> func = () =>
@@ -305,7 +305,7 @@ namespace uStora.Web.API
 
         [Route("delete")]
         [HttpDelete]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [Authorize(Roles = "DeleteUser")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {

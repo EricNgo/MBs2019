@@ -22,14 +22,7 @@
                    notificationService.displayError("Không có đơn hàng nào được tìm thấy.");
                })
         }
-        function loadVehicles() {
-            apiService.get('/api/trackorder/getvehicles', null,
-               function (result) {
-                   $scope.vehicles = result.data;
-               }, function () {
-                   notificationService.displayError("Không có xe nào được tìm thấy.");
-               })
-        }
+
         function loadUsers() {
             apiService.get('/api/trackorder/getdriver', null,
                function (result) {
@@ -49,7 +42,7 @@
         function UpdateTrackOrder() {
             apiService.put('/api/trackorder/updatepickup', $scope.trackorder,
                 function (result) {
-                    notificationService.displaySuccess('Đơn hàng của ' + result.data.Order.CustomerName + ' sẽ được ' + result.data.Vehicle.DriverName + ' giao');
+                    notificationService.displaySuccess('Đơn hàng của ' + result.data.Order.CustomerName + ' đã được lấy');
                     $state.go('trackorders');
                 }, function (error) {
                     console.log(error);
@@ -57,7 +50,7 @@
                 });
         }
         loadOrders();
-        loadVehicles();
+
         loadUsers();
         loadTrackOrderDetail();
     }

@@ -246,31 +246,12 @@ namespace uStora.Web.Infrastructure.Extensions
             wishlist.ProductId = wishlistViewModel.ProductId;
         }
 
-        public static void UpdateVehicle(this Vehicle vehicle, VehicleViewModel vehicleViewModel)
-        {
-            vehicle.ID = vehicleViewModel.ID;
-            vehicle.Model = vehicleViewModel.Model;
-            vehicle.Name = vehicleViewModel.Name;
-            vehicle.VehicleNumber = vehicleViewModel.VehicleNumber;
-            vehicle.DriverName = vehicleViewModel.DriverName;
-            vehicle.ModelID = vehicleViewModel.ModelID;
-            vehicle.Description = vehicleViewModel.Description;
-            vehicle.IsDeleted = vehicleViewModel.IsDeleted;
-
-            vehicle.MetaDescription = vehicleViewModel.MetaDescription;
-            vehicle.MetaKeyword = vehicleViewModel.MetaKeyword;
-            vehicle.Status = vehicleViewModel.Status;
-            vehicle.CreatedBy = vehicleViewModel.CreatedBy;
-            vehicle.CreatedDate = vehicleViewModel.CreatedDate;
-            vehicle.UpdatedBy = vehicleViewModel.UpdatedBy;
-            vehicle.UpdatedDate = vehicleViewModel.UpdatedDate;
-        }
 
         public static void UpdateTrackOrder(this TrackOrder trackOrder, TrackOrderViewModel trackOrderViewModel)
         {
             trackOrder.ID = trackOrderViewModel.ID;
             trackOrder.OrderId = trackOrderViewModel.OrderId;
-            trackOrder.VehicleId = trackOrderViewModel.VehicleId;
+            //trackOrder.VehicleId = trackOrderViewModel.VehicleId;
             trackOrder.Longitude = trackOrderViewModel.Longitude;
             trackOrder.Latitude = trackOrderViewModel.Latitude;
             trackOrder.Status = trackOrderViewModel.Status;

@@ -124,7 +124,6 @@
     <Compile Include="SystemConfigService.cs" />
     <Compile Include="TrackOrderService.cs" />
     <Compile Include="TransactionHistoryService.cs" />
-    <Compile Include="VehicleService.cs" />
     <Compile Include="WishlistService.cs" />
   </ItemGroup>
   <ItemGroup>

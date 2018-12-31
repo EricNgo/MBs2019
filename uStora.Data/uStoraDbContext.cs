@@ -44,7 +44,7 @@ namespace uStora.Data
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
 
-        public DbSet<Vehicle> Vehicles { get; set; }
+        //public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<TrackOrder> TrackOrders { get; set; }
         
         public DbSet<Manufactor> Manufactors { get; set; }

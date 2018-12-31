@@ -251,7 +251,6 @@
     <Compile Include="Api\SlideController.cs" />
     <Compile Include="Api\StatisticController.cs" />
     <Compile Include="Api\TrackOrderController.cs" />
-    <Compile Include="Api\VehicleController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -322,7 +321,6 @@
     <Compile Include="Models\TagCategoryViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Models\TrackOrderViewModel.cs" />
-    <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="Models\ViewCounterViewModel.cs" />
     <Compile Include="Models\WishlistViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -439,13 +437,6 @@
     <Content Include="app\components\trackorders\trackorderEView.html" />
     <Content Include="app\components\trackorders\trackorderListController.js" />
     <Content Include="app\components\trackorders\trackorderListView.html" />
-    <Content Include="app\components\vehicles\vehicle.module.js" />
-    <Content Include="app\components\vehicles\vehicleAddController.js" />
-    <Content Include="app\components\vehicles\vehicleAddView.html" />
-    <Content Include="app\components\vehicles\vehicleEditController.js" />
-    <Content Include="app\components\vehicles\vehicleEditView.html" />
-    <Content Include="app\components\vehicles\vehicleListController.js" />
-    <Content Include="app\components\vehicles\vehicleListView.html" />
     <Content Include="app\shared\directives\pagerDirective.html" />
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\status.filter.js" />

@@ -23,20 +23,20 @@ namespace uStora.Web.Api
         #region init
         ITrackOrderService _trackOrderService;
         IOrderService _orderService;
-        IVehicleService _vehicleService;
+
         IUnitOfWork _unitOfWork;
         IApplicationUserService _appUserService;
         public TrackOrderController(IErrorService errorService,
             ITrackOrderService trackOrderService,
             IUnitOfWork unitOfWork,
             IOrderService orderService,
-            IVehicleService vehicleService,
+    
             IApplicationUserService appUserService) : base(errorService)
         {
             _trackOrderService = trackOrderService;
             _unitOfWork = unitOfWork;
             _orderService = orderService;
-            _vehicleService = vehicleService;
+
             _appUserService = appUserService;
         }
         #endregion
@@ -88,18 +88,6 @@ namespace uStora.Web.Api
             });
         }
 
-        [Route("getvehicles")]
-        [HttpGet]
-        public HttpResponseMessage GetVehicles(HttpRequestMessage request)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                var listVehicles = _vehicleService.GetAll("");
-                var responseData = Mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleViewModel>>(listVehicles);
-                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
-                return response;
-            });
-        }
 
         [Route("getdriver")]
         [HttpGet]
@@ -144,7 +132,7 @@ namespace uStora.Web.Api
         }
         [Route("create")]
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "AddUser")]
         public HttpResponseMessage Create(HttpRequestMessage request, TrackOrderViewModel trackOrderVm)
         {
             return CreateHttpResponse(request, () =>
@@ -175,7 +163,7 @@ namespace uStora.Web.Api
 
         [Route("update")]
         [HttpPut]
-        [AllowAnonymous]
+        [Authorize(Roles = "UpdateTrackOrder")]
         public HttpResponseMessage Update(HttpRequestMessage request, TrackOrderViewModel TrackOrderVm)
         {
             return CreateHttpResponse(request, () =>
@@ -209,7 +197,8 @@ namespace uStora.Web.Api
 
         [Route("updatepickup")]
         [HttpPut]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "UpdateTrackOrder")]
         public HttpResponseMessage UpdatePickup(HttpRequestMessage request, TrackOrderViewModel TrackOrderVm)
         {
             return CreateHttpResponse(request, () =>
@@ -239,7 +228,7 @@ namespace uStora.Web.Api
 
         [Route("delete")]
         [HttpDelete]
-        [AllowAnonymous]
+        [Authorize(Roles = "DeleteUser")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>

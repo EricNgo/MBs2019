@@ -49,7 +49,7 @@
         function UpdateTrackOrder() {
             apiService.put('/api/trackorder/update', $scope.trackorder,
                 function (result) {
-                    notificationService.displaySuccess('Đơn hàng của ' + result.data.Order.CustomerName + ' sẽ được ' + result.data.Vehicle.DriverName + ' giao');
+                    notificationService.displaySuccess('Đơn hàng của ' + result.data.Order.CustomerName + '  được giao');
                     $state.go('trackorders');
                 }, function (error) {
                     console.log(error);
