@@ -4,8 +4,10 @@
     revenueStatisticController.$inject = ['apiService', '$scope', 'notificationService', '$filter', 'commonService'];
     function revenueStatisticController(apiService, $scope, notificationService, $filter, commonService) {
         $scope.tableData = [];
+        $scope.tableData4 = [];
         $scope.getStatistic = getStatistic;
         $scope.getStatisticByQuaterly = getStatisticByQuaterly;
+        $scope.getTopProduct = getTopProduct;
         $scope.page = 0;
         $scope.pagesCount = 0;
         $scope.labels = [];
@@ -16,7 +18,31 @@
         $scope.loading = true;
         $scope.fromDate = '01/12/2016';
         $scope.toDate = '01/12/' + new Date().getFullYear();
+        function getTopProduct() {
+            //page = page || 0;
+            //var config = {
+            //    params: {
+            //        fromDate: commonService.strToDate($scope.fromDate),
+            //        toDate: commonService.strToDate($scope.toDate),
+            //        page: page,
+            //        pageSize: 8
+            //    }
+            //}
+            apiService.get('/api/statistic/gettopproductsellingperquarter', null, function (response) {
+                //var data = response.data.Items;
+                $scope.tableData4 = response.data;
+                //$scope.page = response.data.Page;
+                //$scope.pagesCount = response.data.TotalPages;
+                //$scope.totalCount = response.data.TotalCount;
 
+                $scope.loading = false;
+            }, function (response) {
+                setTimeout(function () {
+                    $scope.loading = false;
+                }, 100);
+  
+            });
+        }
         function getStatistic(page) {
             page = page || 0;
             var config = {
@@ -100,5 +126,6 @@
 
         $scope.getStatistic();
         $scope.getStatisticByQuaterly();
+        $scope.getTopProduct();
     }
 })(angular.module('uStora.statistics'));

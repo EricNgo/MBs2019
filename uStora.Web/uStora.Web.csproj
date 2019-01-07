@@ -19,10 +19,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>59721</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -5666,6 +5666,7 @@
     <Content Include="Assets\libs\php-date-formatter\LICENSE.md" />
     <Content Include="Assets\libs\php-date-formatter\package.json" />
     <Content Include="Assets\libs\php-date-formatter\README.md" />
+    <None Include="Properties\PublishProfiles\Push2019.pubxml" />
     <None Include="Properties\PublishProfiles\uStora.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="UploadedFiles\files\back1.jpg" />
@@ -5752,6 +5753,8 @@
     <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_820.jpg" />
     <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_Xcaliber%281%29.jpg" />
     <Content Include="UploadedFiles\files\TK17_WEB_MTB_16X9_Xcaliber.jpg" />
+    <Content Include="UploadedFiles\files\Trek.png" />
+    <Content Include="UploadedFiles\images\1e4225035c0871aa29102cb7ddf8fbbf.jpg" />
     <Content Include="UploadedFiles\images\brands\Asus_logo.png" />
     <Content Include="UploadedFiles\images\brands\brand1.png" />
     <Content Include="UploadedFiles\images\brands\brand2.png" />
@@ -5759,6 +5762,13 @@
     <Content Include="UploadedFiles\images\brands\brand4.png" />
     <Content Include="UploadedFiles\images\brands\brand5.png" />
     <Content Include="UploadedFiles\images\brands\brand6.png" />
+    <Content Include="UploadedFiles\images\Giant-Logo-homepage.jpg" />
+    <Content Include="UploadedFiles\images\google-voice-search-1413374736.gif" />
+    <Content Include="UploadedFiles\images\gt-bicycles-logo.jpg" />
+    <Content Include="UploadedFiles\images\IMG_20181021_095832.jpg" />
+    <Content Include="UploadedFiles\images\marin-bikes-california-blue-line-bike-lab.png" />
+    <Content Include="UploadedFiles\images\marinBikes-760x330-760x330.jpg" />
+    <Content Include="UploadedFiles\images\o9Z2UEdq_400x400.jpg" />
     <Content Include="UploadedFiles\images\products\1437-g-oppo-a37.jpg" />
     <Content Include="UploadedFiles\images\products\asus-x550lc-1.png" />
     <Content Include="UploadedFiles\images\products\asus-x550lc-2.png" />
@@ -5775,12 +5785,25 @@
     <Content Include="UploadedFiles\images\products\product-thumb-2.jpg" />
     <Content Include="UploadedFiles\images\products\product-thumb-3.jpg" />
     <Content Include="UploadedFiles\images\products\product-thumb-4.jpg" />
+    <Content Include="UploadedFiles\images\scott_logo_horizontal_black.jpg" />
+    <Content Include="UploadedFiles\images\slides\00214-adventure-bikers-bikes-163407-1024x682.jpg" />
+    <Content Include="UploadedFiles\images\slides\0257e089b530a3c.jpg" />
+    <Content Include="UploadedFiles\images\slides\164063523-bicycle-wallpapers.jpg" />
+    <Content Include="UploadedFiles\images\slides\2017gianttcradvancedprodisc_0.jpg" />
+    <Content Include="UploadedFiles\images\slides\225378.jpg" />
     <Content Include="UploadedFiles\images\slides\h4-slide.png" />
     <Content Include="UploadedFiles\images\slides\h4-slide2.png" />
     <Content Include="UploadedFiles\images\slides\h4-slide3.png" />
     <Content Include="UploadedFiles\images\slides\h4-slide4.png" />
     <Content Include="UploadedFiles\images\slides\h4-slide7.png" />
+    <Content Include="UploadedFiles\images\slides\how-to-validate-your-drag-with-best-bike-split-09230-700x394.jpg" />
+    <Content Include="UploadedFiles\images\slides\maxresdefault.jpg" />
+    <Content Include="UploadedFiles\images\slides\p5pb15675695.jpg" />
+    <Content Include="UploadedFiles\images\slides\p5pb7175981.jpg" />
+    <Content Include="UploadedFiles\images\slides\p6pb14733037.jpg" />
+    <Content Include="UploadedFiles\images\slides\trek-920-review-01.jpg" />
     <Content Include="UploadedFiles\images\user-images\default-avatar.jpg" />
+    <Content Include="UploadedFiles\images\user-images\IMG_20180120_100202.jpg" />
     <Content Include="UploadedFiles\_thumbs\Images\brands\Asus_logo.png" />
     <Content Include="UploadedFiles\_thumbs\Images\brands\brand1.png" />
     <Content Include="UploadedFiles\_thumbs\Images\brands\brand2.png" />

@@ -57,5 +57,20 @@ namespace uStora.Web.Api
             });
 
         }
+
+        [Route("gettopproductsellingperquarter")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "ViewUser")]
+        public HttpResponseMessage GetTopProductSellingPerQuarter(HttpRequestMessage request)
+        {
+
+            return CreateHttpResponse(request, () =>
+            {
+                var model = _statisticService.GetTopProductSellingPerQuarter();
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, model);
+                return response;
+            });
+
+        }
     }
 }

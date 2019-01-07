@@ -10,6 +10,8 @@ namespace uStora.Service
     {
         IEnumerable<RevenueStatisticViewModel> GetRevenueStatistic(string fromDate, string toDate);
         IEnumerable<RevenueStatisticViewModel> GetRevenueStatisticByQuaterly(string fromDate, string toDate);
+
+        IEnumerable<RevenueStatisticViewModel> GetTopProductSellingPerQuarter();
     }
 
     public class StatisticService : IStatisticService
@@ -31,6 +33,11 @@ namespace uStora.Service
         public IEnumerable<RevenueStatisticViewModel> GetRevenueStatisticByQuaterly(string fromDate, string toDate)
         {
             return _orderRepository.GetRevenueStatisticByQuaterly(fromDate, toDate).ToList();
+        }
+
+        public IEnumerable<RevenueStatisticViewModel> GetTopProductSellingPerQuarter()
+        {
+            return _orderRepository.GetTopProductSellingPerQuarter().ToList();
         }
     }
 }

@@ -11,5 +11,10 @@ namespace uStora.Common.ViewModels
         public int Quarter { set; get; }
 
         public int Year { set; get; }
+        public long ProductID { get; set; }
+
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int ToTal { get; set; }
     }
 }

@@ -16,6 +16,16 @@ namespace uStora.Web
     public class MvcApplication : HttpApplication
     {
         private string con = ConfigurationManager.ConnectionStrings["uStoraConnection"].ConnectionString;
+        //protected void Application_BeginRequest()
+        //{
+        //    if (!Context.Request.IsSecureConnection
+        //        && !Context.Request.IsLocal // to avoid switching to https when local testing
+        //        )
+        //    {
+        //        // Only insert an "s" to the "http:", and avoid replacing wrongly http: in the url parameters
+        //        Response.Redirect(Context.Request.Url.ToString().Insert(4, "s"));
+        //    }
+        //}
         protected void Application_Start()
         {
             ViewEngines.Engines.Clear();

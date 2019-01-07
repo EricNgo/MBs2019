@@ -11,6 +11,7 @@ namespace uStora.Data.Repositories
     {
         IEnumerable<RevenueStatisticViewModel> GetRevenueStatistic(string fromDate, string toDate);
         IEnumerable<RevenueStatisticViewModel> GetRevenueStatisticByQuaterly(string fromDate, string toDate);
+        IEnumerable<RevenueStatisticViewModel> GetTopProductSellingPerQuarter();
         IEnumerable<OrderClientViewModel> GetListOrder(string userId);
     }
 
@@ -19,6 +20,11 @@ namespace uStora.Data.Repositories
         public OrderRepository(IDbFactory dbFactory)
             : base(dbFactory)
         {
+        }
+
+        public IEnumerable<RevenueStatisticViewModel> GetTopProductSellingPerQuarter()
+        {
+            return DbContext.Database.SqlQuery<RevenueStatisticViewModel>("GetTopProductSellingPerQuarter");
         }
 
         public IEnumerable<OrderClientViewModel> GetListOrder(string userId)
